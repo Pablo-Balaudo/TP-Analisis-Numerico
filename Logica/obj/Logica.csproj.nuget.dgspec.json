@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bagre\\Desktop\\Datos carrera\\Tercero\\Analisis Numérico\\AnalisisNumerico\\Logica\\Logica.csproj": {}
+    "C:\\Users\\Bagre\\Desktop\\Datos carrera\\Tercero\\Analisis Numérico\\TP_AnalisisNumerico\\Logica\\Logica.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bagre\\Desktop\\Datos carrera\\Tercero\\Analisis Numérico\\AnalisisNumerico\\Logica\\Logica.csproj": {
+    "C:\\Users\\Bagre\\Desktop\\Datos carrera\\Tercero\\Analisis Numérico\\TP_AnalisisNumerico\\Logica\\Logica.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bagre\\Desktop\\Datos carrera\\Tercero\\Analisis Numérico\\AnalisisNumerico\\Logica\\Logica.csproj",
+        "projectUniqueName": "C:\\Users\\Bagre\\Desktop\\Datos carrera\\Tercero\\Analisis Numérico\\TP_AnalisisNumerico\\Logica\\Logica.csproj",
         "projectName": "Logica",
-        "projectPath": "C:\\Users\\Bagre\\Desktop\\Datos carrera\\Tercero\\Analisis Numérico\\AnalisisNumerico\\Logica\\Logica.csproj",
+        "projectPath": "C:\\Users\\Bagre\\Desktop\\Datos carrera\\Tercero\\Analisis Numérico\\TP_AnalisisNumerico\\Logica\\Logica.csproj",
         "packagesPath": "C:\\Users\\Bagre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bagre\\Desktop\\Datos carrera\\Tercero\\Analisis Numérico\\AnalisisNumerico\\Logica\\obj\\",
+        "outputPath": "C:\\Users\\Bagre\\Desktop\\Datos carrera\\Tercero\\Analisis Numérico\\TP_AnalisisNumerico\\Logica\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

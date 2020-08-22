@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6SLjs5OxGpScd5sCK0B9P1Twak7Q2ahn8V5HtDRbNJRvLedfDx5qSOqwWUIxEcfwEs9FUOnNnLlUTzgjZ3L8dw==",
+  "dgSpecHash": "0+Xyv/c8/Uj0JdTa9gxQbUR2pj1X7oU4oOKj+W3UGBh0kLPRINfrykufyVH4oye3HSX7DEE0xSfxZPErGbUUZA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Bagre\\Desktop\\Datos carrera\\Tercero\\Analisis Numérico\\AnalisisNumerico\\Logica\\Logica.csproj",
+  "projectFilePath": "C:\\Users\\Bagre\\Desktop\\Datos carrera\\Tercero\\Analisis Numérico\\TP_AnalisisNumerico\\Logica\\Logica.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bagre\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Bagre\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"

@@ -180,23 +180,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bagre\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\A\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bagre\\Desktop\\Datos carrera\\Tercero\\Analisis Numérico\\TP_AnalisisNumerico\\Logica\\Logica.csproj",
+      "projectUniqueName": "C:\\Users\\A\\Source\\Repos\\Pablo-Balaudo\\TP-Analisis-Numerico\\Logica\\Logica.csproj",
       "projectName": "Logica",
-      "projectPath": "C:\\Users\\Bagre\\Desktop\\Datos carrera\\Tercero\\Analisis Numérico\\TP_AnalisisNumerico\\Logica\\Logica.csproj",
-      "packagesPath": "C:\\Users\\Bagre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bagre\\Desktop\\Datos carrera\\Tercero\\Analisis Numérico\\TP_AnalisisNumerico\\Logica\\obj\\",
+      "projectPath": "C:\\Users\\A\\Source\\Repos\\Pablo-Balaudo\\TP-Analisis-Numerico\\Logica\\Logica.csproj",
+      "packagesPath": "C:\\Users\\A\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\A\\Source\\Repos\\Pablo-Balaudo\\TP-Analisis-Numerico\\Logica\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Bagre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\A\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -237,7 +233,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

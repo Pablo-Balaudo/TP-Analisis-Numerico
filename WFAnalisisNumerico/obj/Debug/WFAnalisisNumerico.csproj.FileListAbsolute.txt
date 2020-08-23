@@ -1,0 +1,10 @@
+C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\WFAnalisisNumerico\bin\Debug\WFAnalisisNumerico.exe.config
+C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\WFAnalisisNumerico\bin\Debug\WFAnalisisNumerico.exe
+C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\WFAnalisisNumerico\bin\Debug\WFAnalisisNumerico.pdb
+C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\WFAnalisisNumerico\obj\Debug\WFAnalisisNumerico.csprojAssemblyReference.cache
+C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\WFAnalisisNumerico\obj\Debug\WFAnalisisNumerico.Form1.resources
+C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\WFAnalisisNumerico\obj\Debug\WFAnalisisNumerico.Properties.Resources.resources
+C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\WFAnalisisNumerico\obj\Debug\WFAnalisisNumerico.csproj.GenerateResource.cache
+C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\WFAnalisisNumerico\obj\Debug\WFAnalisisNumerico.csproj.CoreCompileInputs.cache
+C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\WFAnalisisNumerico\obj\Debug\WFAnalisisNumerico.exe
+C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\WFAnalisisNumerico\obj\Debug\WFAnalisisNumerico.pdb

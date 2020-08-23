@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Logica",
+    "\\Logica\\Unidad 1",
+    "\\WFAnalisisNumerico"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\WFAnalisisNumerico\\WFAnalisisNumerico.csproj",
   "PreviewInSolutionExplorer": false
 }

@@ -7,16 +7,16 @@ namespace Logica.Unidad_1
 {
     class Ejercicio1
     {
-        string Funcion(string funcion, int iteraciones, int tolerancia, int numero1, int numero2)
+        string Funcion(string funcion, double iteraciones, double tolerancia, double numero1, double numero2)
         {
-            switch (MismoSigno(numero1, numero2))
+            switch (MismoSigno(FormatearFuncion(funcion, numero1), FormatearFuncion(funcion,numero2)))
             {
                 case "Mismo signo":
+                    return ("Volver a ingresar los intervalos");
+                case "Distinto signo":
                     return Biseccion(funcion, iteraciones, tolerancia, numero1, numero2).ToString();
-                case "Distinto signo": 
-                    return ("Volver a ingresar los intervalos");                   
                 default:
-                    return ("La raiz es " + MismoSigno(numero1, numero2));
+                    return ("La raiz es " + MismoSigno(FormatearFuncion(funcion, numero1), FormatearFuncion(funcion, numero2)));
             }
             //return (MismoSigno(numero1, numero2)) switch
             //{
@@ -26,22 +26,22 @@ namespace Logica.Unidad_1
             //};
         }
 
-        int Biseccion(string funcion, int iteraciones, int tolerancia, int numero1, int numero2)
+        double Biseccion(string funcion, double iteraciones, double tolerancia, double numero1, double numero2)
         {
-            int NoMeAcuerdoQueEra_XANT = 0;
-            int intentos = 0;
+            double NoMeAcuerdoQueEra_XANT = 0;
+            double intentos = 0;
             while (true)
             {
                 intentos++;
-                int mitad = (numero1 + numero2) / 2;
-                int error = Math.Abs(mitad - NoMeAcuerdoQueEra_XANT / mitad);
-                if (FormatearFuncion(funcion, mitad) < tolerancia || error < tolerancia || intentos >= iteraciones)
+                double mitad = (numero1 + numero2) / 2;
+                double error = Math.Abs((mitad - NoMeAcuerdoQueEra_XANT) / mitad);
+                if (Math.Abs(FormatearFuncion(funcion, mitad)) < tolerancia | error < tolerancia | intentos >= iteraciones)
                 {
                     return mitad;
                 }
                 else
                 {
-                    if (FormatearFuncion(funcion, numero1) * FormatearFuncion(funcion, numero2) > 0)
+                    if (FormatearFuncion(funcion, numero1) * FormatearFuncion(funcion, mitad) > 0)
                     {
                         numero1 = mitad;
                     }
@@ -51,13 +51,13 @@ namespace Logica.Unidad_1
                     }
                     NoMeAcuerdoQueEra_XANT = mitad;
                 }
-            }         
+            }
         }
 
         /// <summary>
         /// Devuelve 3 posibles strings, "Mismo signo", "Distinto signo", o la raiz en string 
         /// </summary>
-        string MismoSigno(int numero1, int numero2)
+        string MismoSigno(double numero1, double numero2)
         {
             if (numero1 * numero2 > 0)
             {
@@ -83,14 +83,17 @@ namespace Logica.Unidad_1
             }
         }
 
-        int FormatearFuncion(string funcion, int numero)
+        double FormatearFuncion(string funcion, double numero)
         {
             {
                 string FuncionLimpia = funcion.Trim();
                 FuncionLimpia = FuncionLimpia.Replace("X", numero.ToString());
                 DataTable ResultadoNumero = new DataTable();
-                return (int)ResultadoNumero.Compute(FuncionLimpia, "");
+                //Reemplazar DataTable por https://github.com/ncalc/ncalc
+                return double.Parse(ResultadoNumero.Compute(FuncionLimpia, "").ToString());
             }
         }
+        
+
     }
 }

@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Logica.Unidad_1
 {
-    class Ejercicio1
+    public class Ejercicio1
     {
-        string Funcion(string funcion, double iteraciones, double tolerancia, double numero1, double numero2)
+        public string Funcion(string funcion, double iteraciones, double tolerancia, double numero1, double numero2)
         {
             switch (MismoSigno(FormatearFuncion(funcion, numero1), FormatearFuncion(funcion,numero2)))
             {
@@ -26,9 +26,10 @@ namespace Logica.Unidad_1
             //};
         }
 
-        double Biseccion(string funcion, double iteraciones, double tolerancia, double numero1, double numero2)
+        public Result Biseccion(string funcion, double iteraciones, double tolerancia, double numero1, double numero2)
         {
             double NoMeAcuerdoQueEra_XANT = 0;
+            
             double intentos = 0;
             while (true)
             {
@@ -37,7 +38,8 @@ namespace Logica.Unidad_1
                 double error = Math.Abs((mitad - NoMeAcuerdoQueEra_XANT) / mitad);
                 if (Math.Abs(FormatearFuncion(funcion, mitad)) < tolerancia | error < tolerancia | intentos >= iteraciones)
                 {
-                    return mitad;
+                    Result resultado = new Result(intentos, tolerancia, mitad, true, "");
+                    return resultado;
                 }
                 else
                 {
@@ -53,6 +55,10 @@ namespace Logica.Unidad_1
                 }
             }
         }
+        
+
+
+            
 
         /// <summary>
         /// Devuelve 3 posibles strings, "Mismo signo", "Distinto signo", o la raiz en string 

@@ -7,3 +7,12 @@ C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\Logica\obj\Debug\nets
 C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\Logica\obj\Debug\netstandard2.0\Logica.csproj.CoreCompileInputs.cache
 C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\Logica\obj\Debug\netstandard2.0\Logica.dll
 C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\Logica\obj\Debug\netstandard2.0\Logica.pdb
+C:\Users\Bagre\Documents\TP-Analisis-Numerico\Logica\bin\Debug\netstandard2.0\Logica.deps.json
+C:\Users\Bagre\Documents\TP-Analisis-Numerico\Logica\bin\Debug\netstandard2.0\Logica.dll
+C:\Users\Bagre\Documents\TP-Analisis-Numerico\Logica\bin\Debug\netstandard2.0\Logica.pdb
+C:\Users\Bagre\Documents\TP-Analisis-Numerico\Logica\obj\Debug\netstandard2.0\Logica.csprojAssemblyReference.cache
+C:\Users\Bagre\Documents\TP-Analisis-Numerico\Logica\obj\Debug\netstandard2.0\Logica.AssemblyInfoInputs.cache
+C:\Users\Bagre\Documents\TP-Analisis-Numerico\Logica\obj\Debug\netstandard2.0\Logica.AssemblyInfo.cs
+C:\Users\Bagre\Documents\TP-Analisis-Numerico\Logica\obj\Debug\netstandard2.0\Logica.csproj.CoreCompileInputs.cache
+C:\Users\Bagre\Documents\TP-Analisis-Numerico\Logica\obj\Debug\netstandard2.0\Logica.dll
+C:\Users\Bagre\Documents\TP-Analisis-Numerico\Logica\obj\Debug\netstandard2.0\Logica.pdb

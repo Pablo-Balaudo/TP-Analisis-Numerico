@@ -4,8 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFAnalisisNumerico", "WFAnalisisNumerico\WFAnalisisNumerico.csproj", "{5C253F80-2683-4202-B855-AFCF10165C8B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B990F4A8-B70D-4A54-974D-672A4A0AB9CF} = {B990F4A8-B70D-4A54-974D-672A4A0AB9CF}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csproj", "{B990F4A8-B70D-4A54-974D-672A4A0AB9CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logica", "Logica\Logica.csproj", "{B990F4A8-B70D-4A54-974D-672A4A0AB9CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -21,3 +21,4 @@ C:\Users\Bagre\Documents\TP-Analisis-Numerico\WFAnalisisNumerico\obj\Debug\WFAna
 C:\Users\Bagre\Documents\TP-Analisis-Numerico\WFAnalisisNumerico\bin\Debug\Logica.dll
 C:\Users\Bagre\Documents\TP-Analisis-Numerico\WFAnalisisNumerico\bin\Debug\Logica.pdb
 C:\Users\Bagre\Documents\TP-Analisis-Numerico\WFAnalisisNumerico\obj\Debug\WFAnalisisNumerico.csproj.CopyComplete
+C:\Users\Bagre\Documents\TP-Analisis-Numerico\WFAnalisisNumerico\bin\Debug\Calculus.dll

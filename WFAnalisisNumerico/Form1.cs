@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
 using Logica.Unidad_1;
+using Calculus;
 
-namespace WFAnalisisNumerico
+namespace WFAnalisisNumerico 
 {
     public partial class Form1 : Form
     {

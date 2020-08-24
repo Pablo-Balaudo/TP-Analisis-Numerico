@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
-
+using Calculus;
 namespace Logica.Unidad_1
 {
-    public class Ejercicio1
+    public class Ejercicio1 : Entrada
     {
         public string Funcion(string funcion, double iteraciones, double tolerancia, double numero1, double numero2)
         {
@@ -25,33 +25,60 @@ namespace Logica.Unidad_1
             //    _ => ("La raiz es " + MismoSigno(numero1, numero2)),
             //};
         }
-
-        public Result Biseccion(string funcion, double iteraciones, double tolerancia, double numero1, double numero2)
+        static Result Analizador(string func)
         {
-            double NoMeAcuerdoQueEra_XANT = 0;
-            
+            Result nuevo = new Result(0, 0, 0, true, "");
+            double fx;
+            Calculo AnalizadorDeFuncion = new Calculo();
+            if (!AnalizadorDeFuncion.Sintaxis(func, 'x'))
+            {
+                nuevo.Ok = false;
+                nuevo.Mensaje = "Expresion no valida";
+            }
+            return nuevo;
+        }
+
+        static float Fx(string func, double x)
+        {
+            double f = 0;
+            Calculo funcion = new Calculo();
+            if (funcion.Sintaxis(func, 'x'))
+                f = funcion.EvaluaFx(x);
+            return (float)f;
+        }
+
+        static float CalcularError(float xr, float xant)
+        {
+            return Math.Abs((xr - xant) / xr);
+        }
+
+        public Result Biseccion(string funcion, double iteraciones, double tolerancia, double x_izq, double x_der)
+        {
+            double x_ant = 0;
+            Result resultado = Analizador(funcion);
             double intentos = 0;
+            double error = 1;
             while (true)
             {
                 intentos++;
-                double mitad = (numero1 + numero2) / 2;
-                double error = Math.Abs((mitad - NoMeAcuerdoQueEra_XANT) / mitad);
-                if (Math.Abs(FormatearFuncion(funcion, mitad)) < tolerancia | error < tolerancia | intentos >= iteraciones)
+                double xr = (x_izq + x_der) / 2;
+                error = (x_izq+x_der == 0) ? 1 : Math.Abs((xr - x_ant) / xr);
+                if (Math.Abs(Fx(funcion, xr)) < tolerancia | error < tolerancia | intentos >= iteraciones)
                 {
-                    Result resultado = new Result(intentos, tolerancia, mitad, true, "");
+                    resultado = new Result(intentos, tolerancia, xr, true, "");
                     return resultado;
                 }
                 else
                 {
-                    if (FormatearFuncion(funcion, numero1) * FormatearFuncion(funcion, mitad) > 0)
+                    if (Fx(funcion, x_izq) * Fx(funcion, xr) > 0)
                     {
-                        numero1 = mitad;
+                        x_izq = xr;
                     }
                     else
                     {
-                        numero2 = mitad;
+                        x_der = xr;
                     }
-                    NoMeAcuerdoQueEra_XANT = mitad;
+                    x_ant = xr;
                 }
             }
         }
@@ -92,6 +119,7 @@ namespace Logica.Unidad_1
         double FormatearFuncion(string funcion, double numero)
         {
             {
+            
                 string FuncionLimpia = funcion.Trim();
                 FuncionLimpia = FuncionLimpia.Replace("X", numero.ToString());
                 DataTable ResultadoNumero = new DataTable();

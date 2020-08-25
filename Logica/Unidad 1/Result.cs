@@ -6,14 +6,14 @@ namespace Logica.Unidad_1
 {
     public class Result
     {
-        public double Iter { get; set; }
-        public double Tole { get; set; }
+        public int Iter { get; set; }
+        public decimal Tole { get; set; }
         public double Resolucion { get; set; }
         public bool Ok { get; set; }
         public string Mensaje { get; set; }
 
 
-        public Result(double i, double tol, double sol, bool band, string mensaje)
+        public Result(int i, decimal tol, double sol, bool band, string mensaje)
         {
             Iter = i;
             Tole = tol;

@@ -7,30 +7,30 @@ namespace Logica.Unidad_1
 {
     public class Ejercicio1 : Entrada
     {
-        public string Funcion(string funcion, double iteraciones, double tolerancia, double numero1, double numero2)
-        {
-            switch (MismoSigno(FormatearFuncion(funcion, numero1), FormatearFuncion(funcion,numero2)))
-            {
-                case "Mismo signo":
-                    return ("Volver a ingresar los intervalos");
-                case "Distinto signo":
-                    return Biseccion(funcion, iteraciones, tolerancia, numero1, numero2).ToString();
-                default:
-                    return ("La raiz es " + MismoSigno(FormatearFuncion(funcion, numero1), FormatearFuncion(funcion, numero2)));
-            }
-            //return (MismoSigno(numero1, numero2)) switch
-            //{
-            //    "Mismo signo" => Biseccion(funcion, iteraciones, tolerancia, numero1, numero2).ToString(),
-            //    "Distinto signo" => ("Volver a ingresar los intervalos"),
-            //    _ => ("La raiz es " + MismoSigno(numero1, numero2)),
-            //};
-        }
-        static Result Analizador(string func)
+        //public string Funcion(string funcion, double iteraciones, double tolerancia, double numero1, double numero2)
+        //{
+        //    switch (MismoSigno(FormatearFuncion(funcion, numero1), FormatearFuncion(funcion,numero2)))
+        //    {
+        //        case "Mismo signo":
+        //            return ("Volver a ingresar los intervalos");
+        //        case "Distinto signo":
+        //            return Biseccion(funcion, iteraciones, tolerancia, numero1, numero2).ToString();
+        //        default:
+        //            return ("La raiz es " + MismoSigno(FormatearFuncion(funcion, numero1), FormatearFuncion(funcion, numero2)));
+        //    }
+        //    return (MismoSigno(numero1, numero2)) switch
+        //    {
+        //        "Mismo signo" => Biseccion(funcion, iteraciones, tolerancia, numero1, numero2).ToString(),
+        //        "Distinto signo" => ("Volver a ingresar los intervalos"),
+        //        _ => ("La raiz es " + MismoSigno(numero1, numero2)),
+        //    };
+        //}
+        public static Result Analizador(string funcion)
         {
             Result nuevo = new Result(0, 0, 0, true, "");
             double fx;
             Calculo AnalizadorDeFuncion = new Calculo();
-            if (!AnalizadorDeFuncion.Sintaxis(func, 'x'))
+            if (!AnalizadorDeFuncion.Sintaxis(funcion, 'x'))
             {
                 nuevo.Ok = false;
                 nuevo.Mensaje = "Expresion no valida";
@@ -38,7 +38,7 @@ namespace Logica.Unidad_1
             return nuevo;
         }
 
-        static float Fx(string func, double x)
+        public static float Fx(string func, double x)
         {
             double f = 0;
             Calculo funcion = new Calculo();
@@ -52,21 +52,51 @@ namespace Logica.Unidad_1
             return Math.Abs((xr - xant) / xr);
         }
 
-        public Result Biseccion(string funcion, double iteraciones, double tolerancia, double x_izq, double x_der)
+        public static Result Biseccion(string funcion, double iteraciones, double tolerancia, float x_izq, float x_der)
         {
-            double x_ant = 0;
             Result resultado = Analizador(funcion);
-            double intentos = 0;
-            double error = 1;
+            if (!resultado.Ok)
+            {
+                resultado.Mensaje = "No se pudo analizar la función";
+                return resultado;
+            }
+
+            int intentos = 0;
+            float x_ant = 0;
+            double operacion = Fx(funcion, x_izq) * Fx(funcion, x_der);
+
+            if (operacion > 0)
+            {
+                if (operacion == 0)
+                {
+                    if (Fx(funcion, x_izq) == 0)
+                        resultado.Resolucion = x_izq;
+
+                    else
+                        resultado.Resolucion = x_der;
+                }
+                else
+                {
+                    resultado.Ok = false;
+                    resultado.Mensaje = "Limite Derecho o Izquierdo incorrectos, por favor ingreselos nuevamente";
+                }
+                return resultado;
+            }
+
             while (true)
             {
                 intentos++;
-                double xr = (x_izq + x_der) / 2;
-                error = (x_izq+x_der == 0) ? 1 : Math.Abs((xr - x_ant) / xr);
+                float xr = (x_izq + x_der) / 2;
+                float error = (x_izq + x_der == 0) ? 1 : CalcularError(xr, x_ant);
                 if (Math.Abs(Fx(funcion, xr)) < tolerancia | error < tolerancia | intentos >= iteraciones)
-                {
-                    resultado = new Result(intentos, tolerancia, xr, true, "");
-                    return resultado;
+                {                   
+                    
+                    if (Math.Abs(Fx(funcion, xr)) < tolerancia)
+                        resultado.Tole = Convert.ToDecimal(Math.Abs(Fx(funcion, xr)));
+                    else
+                        resultado.Tole = Convert.ToDecimal(error);
+                    Result resultx = new Result(intentos, resultado.Tole, xr, true, "");
+                    return resultx;
                 }
                 else
                 {

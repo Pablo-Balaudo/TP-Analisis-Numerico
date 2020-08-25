@@ -22,7 +22,7 @@ namespace WFAnalisisNumerico
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
 
@@ -36,8 +36,7 @@ namespace WFAnalisisNumerico
             }
             else
             {
-                Ejercicio1 eje1 = new Ejercicio1();
-                Result res = eje1.Biseccion(txt_Funcion.Text, int.Parse(txt_Iter.Text),
+                Result res = Ejercicio1.Biseccion(txt_Funcion.Text, int.Parse(txt_Iter.Text),
                         double.Parse(txt_Tole.Text), float.Parse(txt_LI.Text), float.Parse(txt_LD.Text));
                 if (!res.Ok)
                 {

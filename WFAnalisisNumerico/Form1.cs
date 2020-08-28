@@ -36,7 +36,7 @@ namespace WFAnalisisNumerico
             }
             else
             {
-                Result res = Ejercicio1.Biseccion(txt_Funcion.Text, int.Parse(txt_Iter.Text),
+                Resultado res = Ejercicio1.Biseccion(txt_Funcion.Text, int.Parse(txt_Iter.Text),
                         double.Parse(txt_Tole.Text), float.Parse(txt_LI.Text), float.Parse(txt_LD.Text));
                 if (!res.Ok)
                 {
@@ -44,8 +44,8 @@ namespace WFAnalisisNumerico
                 }
                 else
                 {
-                    lbl_Iter_1.Text = res.Iter.ToString();
-                    lbl_Tole_1.Text = res.Tole.ToString();
+                    lbl_Iter_1.Text = res.Iteraciones.ToString();
+                    lbl_Tole_1.Text = res.Tolerancia.ToString();
                     lbl_Solucion_1.Text = res.Resolucion.ToString();
                 }
             }

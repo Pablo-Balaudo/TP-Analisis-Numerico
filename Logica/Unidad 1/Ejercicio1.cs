@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
+//using System.Data;
 using System.Text;
 using Calculus;
 namespace Logica.Unidad_1
@@ -25,10 +25,10 @@ namespace Logica.Unidad_1
         //        _ => ("La raiz es " + MismoSigno(numero1, numero2)),
         //    };
         //}
-        public static Result Analizador(string funcion)
+        public static Resultado Analizador(string funcion)
         {
-            Result nuevo = new Result(0, 0, 0, true, "");
-            double fx;
+            Resultado nuevo = new Resultado(0, 0, 0, true, "");
+            double fx; //SIRVE DE ALGO?
             Calculo AnalizadorDeFuncion = new Calculo();
             if (!AnalizadorDeFuncion.Sintaxis(funcion, 'x'))
             {
@@ -38,23 +38,24 @@ namespace Logica.Unidad_1
             return nuevo;
         }
 
-        public static float Fx(string func, double x)
+        public static double Fx(string func, double x)
         {
             double f = 0;
             Calculo funcion = new Calculo();
             if (funcion.Sintaxis(func, 'x'))
                 f = funcion.EvaluaFx(x);
-            return (float)f;
+            return f;
         }
 
-        static float CalcularError(float xr, float xant)
-        {
-            return Math.Abs((xr - xant) / xr);
+        static double CalcularError(double xr, double xant)
+        {            
+            return Math.Abs((xr - xant) / xr);            
         }
+        
 
-        public static Result Biseccion(string funcion, double iteraciones, double tolerancia, float x_izq, float x_der)
+        public static Resultado Biseccion(string funcion, double iteraciones, double tolerancia, double x_izquierda, double x_derecha)
         {
-            Result resultado = Analizador(funcion);
+            Resultado resultado = Analizador(funcion);
             if (!resultado.Ok)
             {
                 resultado.Mensaje = "No se pudo analizar la función";
@@ -62,18 +63,18 @@ namespace Logica.Unidad_1
             }
 
             int intentos = 0;
-            float x_ant = 0;
-            double operacion = Fx(funcion, x_izq) * Fx(funcion, x_der);
+            double x_ant = 0;
+            double operacion = Fx(funcion, x_izquierda) * Fx(funcion, x_derecha);
 
-            if (operacion > 0)
+            if (operacion > 0) //No quedaria mejor If (operacion < 0) {resultado.ok = falso, etc}; else {if (op == 0)}
             {
                 if (operacion == 0)
                 {
-                    if (Fx(funcion, x_izq) == 0)
-                        resultado.Resolucion = x_izq;
+                    if (Fx(funcion, x_izquierda) == 0)
+                        resultado.Resolucion = x_izquierda;
 
                     else
-                        resultado.Resolucion = x_der;
+                        resultado.Resolucion = x_derecha;
                 }
                 else
                 {
@@ -86,33 +87,81 @@ namespace Logica.Unidad_1
             while (true)
             {
                 intentos++;
-                float xr = (x_izq + x_der) / 2;
-                float error = (x_izq + x_der == 0) ? 1 : CalcularError(xr, x_ant);
-                if (Math.Abs(Fx(funcion, xr)) < tolerancia | error < tolerancia | intentos >= iteraciones)
-                {                   
-                    
-                    if (Math.Abs(Fx(funcion, xr)) < tolerancia)
-                        resultado.Tole = Convert.ToDecimal(Math.Abs(Fx(funcion, xr)));
+                double x_resultado = (x_izquierda + x_derecha) / 2;
+                double error = (x_izquierda + x_derecha == 0) ? 1 : CalcularError(x_resultado, x_ant);
+                if (Math.Abs(Fx(funcion, x_resultado)) < tolerancia | error < tolerancia | intentos >= iteraciones)
+                {
+
+                    if (Math.Abs(Fx(funcion, x_resultado)) < tolerancia)
+                        resultado.Tolerancia = Math.Abs(Fx(funcion, x_resultado));
+                        //resultado.Tolerancia = Convert.ToDecimal(Math.Abs(Fx(funcion, x_resultado)));
                     else
-                        resultado.Tole = Convert.ToDecimal(error);
-                    Result resultx = new Result(intentos, resultado.Tole, xr, true, "");
+                        resultado.Tolerancia = error;
+                        //resultado.Tolerancia = Convert.ToDecimal(error);
+                    Resultado resultx = new Resultado(intentos, resultado.Tolerancia, x_resultado, true, "");
                     return resultx;
                 }
                 else
                 {
-                    if (Fx(funcion, x_izq) * Fx(funcion, xr) > 0)
+                    if (Fx(funcion, x_izquierda) * Fx(funcion, x_resultado) > 0)
                     {
-                        x_izq = xr;
+                        x_izquierda = x_resultado;
                     }
                     else
                     {
-                        x_der = xr;
+                        x_derecha = x_resultado;
                     }
-                    x_ant = xr;
+                    x_ant = x_resultado;
                 }
             }
         }
         
+        public static Resultado Newton(string funcion, string funcion_derivada, double iteraciones, double tolerancia, double x_inicial)
+        {
+            Resultado resultado = Analizador(funcion);
+            if (!resultado.Ok)
+            {
+                resultado.Mensaje = "No se pudo analizar la función";
+                return resultado;
+            }
+
+            Resultado resultado_deivada = Analizador(funcion_derivada);
+            if (!resultado_deivada.Ok)
+            {
+                resultado_deivada.Mensaje = "No se pudo analizar la función";
+                return resultado_deivada;
+            }
+
+            int intentos = 0;
+            double x_ant = 0;
+            double operacion = Fx(funcion, x_inicial);
+
+            if (operacion < tolerancia)
+            {
+                resultado.Resolucion = x_inicial;
+            }
+            else
+            {
+                while (true)
+                {
+                    intentos++;
+                    double x_resultado = x_inicial - operacion / Fx(funcion_derivada, x_inicial);
+                    double error = CalcularError(x_resultado, x_ant);
+                    if (Math.Abs(Fx(funcion, x_resultado)) < tolerancia | error < tolerancia | intentos >= iteraciones)
+                    {
+                        return new Resultado(intentos, tolerancia, x_resultado, true, "");                        
+                    }
+                    else
+                    {                                               
+                        x_inicial = x_resultado;                                                
+                        x_ant = x_resultado;                        
+                    }
+                }
+            }
+            return resultado;            
+
+            
+        }
 
 
             
@@ -120,43 +169,42 @@ namespace Logica.Unidad_1
         /// <summary>
         /// Devuelve 3 posibles strings, "Mismo signo", "Distinto signo", o la raiz en string 
         /// </summary>
-        string MismoSigno(double numero1, double numero2)
-        {
-            if (numero1 * numero2 > 0)
-            {
-                return "Mismo signo";
-            }
-            else
-            {
-                if (numero1 * numero2 < 0)
-                {
-                    return "Distinto signo";
-                }
-                else
-                {
-                    if (numero1 == 0)
-                    {
-                        return numero1.ToString();
-                    }
-                    else
-                    {
-                        return numero2.ToString();
-                    }
-                }
-            }
-        }
+        //string MismoSigno(double numero1, double numero2)
+        //{
+        //    if (numero1 * numero2 > 0)
+        //    {
+        //        return "Mismo signo";
+        //    }
+        //    else
+        //    {
+        //        if (numero1 * numero2 < 0)
+        //        {
+        //            return "Distinto signo";
+        //        }
+        //        else
+        //        {
+        //            if (numero1 == 0)
+        //            {
+        //                return numero1.ToString();
+        //            }
+        //            else
+        //            {
+        //                return numero2.ToString();
+        //            }
+        //        }
+        //    }
+        //}
 
-        double FormatearFuncion(string funcion, double numero)
-        {
-            {
-            
-                string FuncionLimpia = funcion.Trim();
-                FuncionLimpia = FuncionLimpia.Replace("X", numero.ToString());
-                DataTable ResultadoNumero = new DataTable();
-                //Reemplazar DataTable por https://github.com/ncalc/ncalc
-                return double.Parse(ResultadoNumero.Compute(FuncionLimpia, "").ToString());
-            }
-        }
+        //double FormatearFuncion(string funcion, double numero)
+        //{
+        //    {           
+        //        string FuncionLimpia = funcion.Trim();
+        //        FuncionLimpia = FuncionLimpia.Replace("X", numero.ToString());
+        //        DataTable ResultadoNumero = new DataTable();
+        //        //Reemplazar DataTable por https://github.com/ncalc/ncalc
+        //        return double.Parse(ResultadoNumero.Compute(FuncionLimpia, "").ToString());
+        //    }
+        //}
         
 
     }

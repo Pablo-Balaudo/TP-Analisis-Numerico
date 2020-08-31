@@ -146,13 +146,13 @@ namespace Logica.Unidad_1
                 }
                 return resultado;
             }
-            double xr = ((-(Fx(funcion, x_derecha)) * x_izquierda) + (Fx(funcion, x_izquierda) * x_derecha)) / (Fx(funcion, x_izquierda) - Fx(funcion, x_derecha));
+            double x_resultado = ((-(Fx(funcion, x_derecha)) * x_izquierda) + (Fx(funcion, x_izquierda) * x_derecha)) / (Fx(funcion, x_izquierda) - Fx(funcion, x_derecha));
 
 
             while (true)
             {
                 intentos++;
-                double x_resultado = (x_izquierda + x_derecha) / 2;
+                x_resultado = ((-(Fx(funcion, x_derecha)) * x_izquierda) + (Fx(funcion, x_izquierda) * x_derecha)) / (Fx(funcion, x_izquierda) - Fx(funcion, x_derecha));
                 double error = (x_izquierda + x_derecha == 0) ? 1 : CalcularError(x_resultado, x_ant);
                 if (Math.Abs(Fx(funcion, x_resultado)) < tolerancia | error < tolerancia | intentos >= iteraciones)
                 {

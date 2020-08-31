@@ -66,22 +66,22 @@ namespace Logica.Unidad_1
             double x_ant = 0;
             double operacion = Fx(funcion, x_izquierda) * Fx(funcion, x_derecha);
 
-            if (operacion > 0) //No quedaria mejor If (operacion < 0) {resultado.ok = falso, etc}; else {if (op == 0)}
+            if (operacion == 0)
             {
-                if (operacion == 0)
-                {
-                    if (Fx(funcion, x_izquierda) == 0)
-                        resultado.Resolucion = x_izquierda;
-
-                    else
-                        resultado.Resolucion = x_derecha;
-                }
+                if (Fx(funcion, x_izquierda) == 0)
+                    resultado.Resolucion = x_izquierda;
                 else
+                    resultado.Resolucion = x_derecha;
+                return resultado;
+            }
+            else
+            {
+                if (operacion > 0)
                 {
                     resultado.Ok = false;
-                    resultado.Mensaje = "Limite Derecho o Izquierdo incorrectos, ingresar nuevamente";
+                    resultado.Mensaje = "Limite Derecho o Izquierdo incorrectos, por favor ingreselos nuevamente";
+                    return resultado;
                 }
-                return resultado;
             }
 
             while (true)
@@ -91,15 +91,13 @@ namespace Logica.Unidad_1
                 double error = (x_izquierda + x_derecha == 0) ? 1 : CalcularError(x_resultado, x_ant);
                 if (Math.Abs(Fx(funcion, x_resultado)) < tolerancia | error < tolerancia | intentos >= iteraciones)
                 {
-
                     if (Math.Abs(Fx(funcion, x_resultado)) < tolerancia)
                         resultado.Tolerancia = Math.Abs(Fx(funcion, x_resultado));
                         //resultado.Tolerancia = Convert.ToDecimal(Math.Abs(Fx(funcion, x_resultado)));
                     else
                         resultado.Tolerancia = error;
                         //resultado.Tolerancia = Convert.ToDecimal(error);
-                    Resultado resultx = new Resultado(intentos, resultado.Tolerancia, x_resultado, true, "");
-                    return resultx;
+                    return new Resultado(intentos, resultado.Tolerancia, x_resultado, true, "");
                 }
                 else
                 {
@@ -128,31 +126,30 @@ namespace Logica.Unidad_1
             int intentos = 0;
             double x_ant = 0;
             double operacion = Fx(funcion, x_izquierda) * Fx(funcion, x_derecha);
-
-            if (operacion > 0)
+            
+            if (operacion == 0)
             {
-                if (operacion == 0)
-                {
-                    if (Fx(funcion, x_izquierda) == 0)
-                        resultado.Resolucion = x_izquierda;
-
-                    else
-                        resultado.Resolucion = x_derecha;
-                }
+                if (Fx(funcion, x_izquierda) == 0)
+                    resultado.Resolucion = x_izquierda;
                 else
+                    resultado.Resolucion = x_derecha;
+                return resultado;
+
+            }
+            else
+            {
+                if (operacion > 0)
                 {
                     resultado.Ok = false;
                     resultado.Mensaje = "Limite Derecho o Izquierdo incorrectos, por favor ingreselos nuevamente";
+                    return resultado;
                 }
-                return resultado;
             }
-            double x_resultado = ((-(Fx(funcion, x_derecha)) * x_izquierda) + (Fx(funcion, x_izquierda) * x_derecha)) / (Fx(funcion, x_izquierda) - Fx(funcion, x_derecha));
-
-
+            
             while (true)
             {
                 intentos++;
-                x_resultado = ((-(Fx(funcion, x_derecha)) * x_izquierda) + (Fx(funcion, x_izquierda) * x_derecha)) / (Fx(funcion, x_izquierda) - Fx(funcion, x_derecha));
+                double x_resultado = ((-(Fx(funcion, x_derecha)) * x_izquierda) + (Fx(funcion, x_izquierda) * x_derecha)) / (Fx(funcion, x_izquierda) - Fx(funcion, x_derecha));
                 double error = (x_izquierda + x_derecha == 0) ? 1 : CalcularError(x_resultado, x_ant);
                 if (Math.Abs(Fx(funcion, x_resultado)) < tolerancia | error < tolerancia | intentos >= iteraciones)
                 {
@@ -171,10 +168,8 @@ namespace Logica.Unidad_1
                     { x_derecha = x_resultado; }
                     x_ant = x_resultado;
                 }
-
             }
         }
-
 
 
         public static Resultado Newton(string funcion, string funcion_derivada, double iteraciones, double tolerancia, double x_inicial)

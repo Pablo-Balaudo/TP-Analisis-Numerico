@@ -1,6 +1,6 @@
 ﻿namespace WFAnalisisNumerico
 {
-    partial class Form1
+    partial class AnalisisNumerico
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -72,6 +72,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.lbl_Solucion_4 = new System.Windows.Forms.Label();
+            this.lbl_Tole_4 = new System.Windows.Forms.Label();
+            this.lbl_Iter_4 = new System.Windows.Forms.Label();
+            this.btnObtener_4 = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.Panel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabTan.SuspendLayout();
@@ -81,7 +89,9 @@
             this.groupBox3.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel
@@ -433,6 +443,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.groupBox6);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Size = new System.Drawing.Size(706, 167);
@@ -557,13 +568,102 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.lbl_Solucion_4);
+            this.groupBox6.Controls.Add(this.lbl_Tole_4);
+            this.groupBox6.Controls.Add(this.lbl_Iter_4);
+            this.groupBox6.Controls.Add(this.btnObtener_4);
+            this.groupBox6.Controls.Add(this.label18);
+            this.groupBox6.Controls.Add(this.label19);
+            this.groupBox6.Controls.Add(this.label20);
+            this.groupBox6.Location = new System.Drawing.Point(2, 2);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox6.Size = new System.Drawing.Size(702, 163);
+            this.groupBox6.TabIndex = 14;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Datos de salida";
+            // 
+            // lbl_Solucion_4
+            // 
+            this.lbl_Solucion_4.AutoSize = true;
+            this.lbl_Solucion_4.Location = new System.Drawing.Point(126, 70);
+            this.lbl_Solucion_4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_Solucion_4.Name = "lbl_Solucion_4";
+            this.lbl_Solucion_4.Size = new System.Drawing.Size(13, 13);
+            this.lbl_Solucion_4.TabIndex = 24;
+            this.lbl_Solucion_4.Text = "--";
+            // 
+            // lbl_Tole_4
+            // 
+            this.lbl_Tole_4.AutoSize = true;
+            this.lbl_Tole_4.Location = new System.Drawing.Point(126, 47);
+            this.lbl_Tole_4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_Tole_4.Name = "lbl_Tole_4";
+            this.lbl_Tole_4.Size = new System.Drawing.Size(13, 13);
+            this.lbl_Tole_4.TabIndex = 23;
+            this.lbl_Tole_4.Text = "--";
+            // 
+            // lbl_Iter_4
+            // 
+            this.lbl_Iter_4.AutoSize = true;
+            this.lbl_Iter_4.Location = new System.Drawing.Point(126, 24);
+            this.lbl_Iter_4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_Iter_4.Name = "lbl_Iter_4";
+            this.lbl_Iter_4.Size = new System.Drawing.Size(13, 13);
+            this.lbl_Iter_4.TabIndex = 22;
+            this.lbl_Iter_4.Text = "--";
+            // 
+            // btnObtener_4
+            // 
+            this.btnObtener_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnObtener_4.Location = new System.Drawing.Point(613, 117);
+            this.btnObtener_4.Margin = new System.Windows.Forms.Padding(2);
+            this.btnObtener_4.Name = "btnObtener_4";
+            this.btnObtener_4.Size = new System.Drawing.Size(85, 42);
+            this.btnObtener_4.TabIndex = 22;
+            this.btnObtener_4.Text = "Obtener";
+            this.btnObtener_4.UseVisualStyleBackColor = true;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(65, 70);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(57, 13);
+            this.label18.TabIndex = 13;
+            this.label18.Text = "Solucion =";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(42, 47);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(80, 13);
+            this.label19.TabIndex = 12;
+            this.label19.Text = "Error Relativo =";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(54, 24);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(68, 13);
+            this.label20.TabIndex = 11;
+            this.label20.Text = "Iteraciones =";
+            // 
+            // AnalisisNumerico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Panel);
-            this.Name = "Form1";
+            this.Name = "AnalisisNumerico";
             this.Text = "Form1";
             this.Panel.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -578,8 +678,11 @@
             this.tabPage5.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -630,6 +733,14 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label lbl_Solucion_4;
+        private System.Windows.Forms.Label lbl_Tole_4;
+        private System.Windows.Forms.Label lbl_Iter_4;
+        private System.Windows.Forms.Button btnObtener_4;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
     }
 }
 

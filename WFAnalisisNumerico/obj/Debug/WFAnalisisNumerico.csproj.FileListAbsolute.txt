@@ -12,7 +12,6 @@ C:\Users\Bagre\Documents\TP-Analisis-Numerico\WFAnalisisNumerico\bin\Debug\WFAna
 C:\Users\Bagre\Documents\TP-Analisis-Numerico\WFAnalisisNumerico\bin\Debug\WFAnalisisNumerico.exe
 C:\Users\Bagre\Documents\TP-Analisis-Numerico\WFAnalisisNumerico\bin\Debug\WFAnalisisNumerico.pdb
 C:\Users\Bagre\Documents\TP-Analisis-Numerico\WFAnalisisNumerico\obj\Debug\WFAnalisisNumerico.csprojAssemblyReference.cache
-C:\Users\Bagre\Documents\TP-Analisis-Numerico\WFAnalisisNumerico\obj\Debug\WFAnalisisNumerico.Form1.resources
 C:\Users\Bagre\Documents\TP-Analisis-Numerico\WFAnalisisNumerico\obj\Debug\WFAnalisisNumerico.Properties.Resources.resources
 C:\Users\Bagre\Documents\TP-Analisis-Numerico\WFAnalisisNumerico\obj\Debug\WFAnalisisNumerico.csproj.GenerateResource.cache
 C:\Users\Bagre\Documents\TP-Analisis-Numerico\WFAnalisisNumerico\obj\Debug\WFAnalisisNumerico.csproj.CoreCompileInputs.cache
@@ -25,3 +24,4 @@ C:\Users\Bagre\Documents\TP-Analisis-Numerico\WFAnalisisNumerico\bin\Debug\Calcu
 C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\WFAnalisisNumerico\bin\Debug\Logica.dll
 C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\WFAnalisisNumerico\bin\Debug\Logica.pdb
 C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\WFAnalisisNumerico\obj\Debug\WFAnalisisNumerico.csproj.CopyComplete
+C:\Users\Bagre\Documents\TP-Analisis-Numerico\WFAnalisisNumerico\obj\Debug\WFAnalisisNumerico.AnalisisNumerico.resources

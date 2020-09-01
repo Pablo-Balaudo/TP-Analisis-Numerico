@@ -13,9 +13,9 @@ using Calculus;
 
 namespace WFAnalisisNumerico 
 {
-    public partial class Form1 : Form
+    public partial class AnalisisNumerico : Form
     {
-        public Form1()
+        public AnalisisNumerico()
         {
             InitializeComponent();
         }

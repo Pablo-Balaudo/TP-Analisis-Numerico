@@ -20,3 +20,14 @@ C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\Logica\obj\Debug\nets
 C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\Logica\obj\Debug\netstandard2.0\Logica.dll
 C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\Logica\obj\Debug\netstandard2.0\Logica.pdb
 C:\Users\A\Source\Repos\Pablo-Balaudo\TP-Analisis-Numerico\Logica\obj\Debug\netstandard2.0\Logica.csprojAssemblyReference.cache
+C:\Users\USUARIO\Desktop\TP ANALISIS\Logica\bin\Debug\netstandard2.0\Logica.deps.json
+C:\Users\USUARIO\Desktop\TP ANALISIS\Logica\bin\Debug\netstandard2.0\Logica.dll
+C:\Users\USUARIO\Desktop\TP ANALISIS\Logica\bin\Debug\netstandard2.0\Logica.pdb
+C:\Users\USUARIO\Desktop\TP ANALISIS\Logica\bin\Debug\netstandard2.0\Calculus.dll
+C:\Users\USUARIO\Desktop\TP ANALISIS\Logica\obj\Debug\netstandard2.0\Logica.csprojAssemblyReference.cache
+C:\Users\USUARIO\Desktop\TP ANALISIS\Logica\obj\Debug\netstandard2.0\Logica.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Desktop\TP ANALISIS\Logica\obj\Debug\netstandard2.0\Logica.AssemblyInfoInputs.cache
+C:\Users\USUARIO\Desktop\TP ANALISIS\Logica\obj\Debug\netstandard2.0\Logica.AssemblyInfo.cs
+C:\Users\USUARIO\Desktop\TP ANALISIS\Logica\obj\Debug\netstandard2.0\Logica.csproj.CopyComplete
+C:\Users\USUARIO\Desktop\TP ANALISIS\Logica\obj\Debug\netstandard2.0\Logica.dll
+C:\Users\USUARIO\Desktop\TP ANALISIS\Logica\obj\Debug\netstandard2.0\Logica.pdb

@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ffh83AanFhQVrLoPW/cmumgyD+NbG8aseI85tSj2cRpgA3Bpr4o/QV8J1Rzgt3oRPuh+sH5iczVS5oEhbD6zfw==",
+  "dgSpecHash": "USIMkAStcYwa36O1/zn7KqnmVT5brD8TcXJXgIXhQOpSbxWimJmZgpF7OJOPpAMZhdueNNhkM63GU0P0l8EDOg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Bagre\\Documents\\TP-Analisis-Numerico\\Logica\\Logica.csproj",
+  "projectFilePath": "C:\\Users\\USUARIO\\Desktop\\TP ANALISIS\\Logica\\Logica.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Bagre\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Bagre\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }

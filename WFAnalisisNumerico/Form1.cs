@@ -118,6 +118,30 @@ namespace WFAnalisisNumerico
             }
         }
 
+        //Metodo de la Secante
+        private void btnObtener_4_Click(object sender, EventArgs e)
+        {
+            if (!ChequearTextBoxs(sender, e))
+            {
+                MessageBox.Show("Campos Vacios");
+            }
+            else
+            {
+                Resultado res = Ejercicio1.Secante(txt_Funcion.Text, int.Parse(txt_Iter.Text), 
+                        double.Parse(txt_Tole.Text), float.Parse(txt_LI.Text), float.Parse(txt_LD.Text));
 
+                if (!res.Ok)
+                {
+                    MessageBox.Show(res.Mensaje);
+                }
+                else
+                {
+                    lbl_Iter_4.Text = res.Iteraciones.ToString();
+                    lbl_Tole_4.Text = res.Tolerancia.ToString();
+                    lbl_Solucion_4.Text = res.Resolucion.ToString();
+                }
+            }
+
+        }
     }
 }

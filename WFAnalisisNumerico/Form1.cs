@@ -102,8 +102,8 @@ namespace WFAnalisisNumerico
             }
             else
             {
-                Resultado res = Ejercicio1.Biseccion(txt_Funcion.Text, int.Parse(txt_Iter.Text), //deje biseccion porque no tengo un txt_derivada todavia
-                        double.Parse(txt_Tole.Text), float.Parse(txt_LI.Text), float.Parse(txt_LD.Text));
+                Resultado res = Ejercicio1.Newton(txt_Funcion.Text, int.Parse(txt_Iter.Text),
+                        double.Parse(txt_Tole.Text), float.Parse(txt_LI.Text));
 
                 if (!res.Ok)
                  {

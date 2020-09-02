@@ -96,12 +96,6 @@ namespace WFAnalisisNumerico
         // btn3: metodo de Newton-Raphson
         private void btn3_Obtener_Click(object sender, EventArgs e)
         {
-            //if (!ChequearTextBoxs(sender, e))
-            //{
-              //   MessageBox.Show("Campos Vacios");
-            //}
-            //else
-            //{
                 Resultado res = Ejercicio1.Newton(txt_Funcion.Text, int.Parse(txt_Iter.Text),
                         double.Parse(txt_Tole.Text), float.Parse(txt_LI.Text));
 

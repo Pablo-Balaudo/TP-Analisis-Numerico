@@ -163,18 +163,20 @@ namespace Logica.Unidad_1
             int intentos = 0;
             double x_ant = 0;
             double operacion = Fx(funcion, x_inicial);
-
-            if (Math.Abs(operacion) < tolerancia)
+            double x_resultado = x_inicial;
+            double error = 1;
+            if (operacion == 0)
             {
-                resultado.Resolucion = x_inicial;
+                resultado.Resolucion = x_inicial;         
+                return resultado;
             }
             else
             {
-                while (((Fx(funcion, x_inicial + tolerancia) - operacion) / tolerancia != 0) & (((Fx(funcion, (x_inicial + 1 + tolerancia)) - Fx(funcion, x_inicial + 1)) / tolerancia) != 0))
+                while ((Math.Abs(Fx(funcion, x_resultado)) >= tolerancia || Math.Abs(Fx(funcion, x_resultado)) == 0) && intentos < iteraciones && error > tolerancia)
                 {
                     intentos++;
-                    double x_resultado = x_inicial - operacion / ((Fx(funcion, (x_inicial + tolerancia)) - operacion) / tolerancia);
-                    double error = CalcularError(x_resultado, x_ant);
+                    x_resultado = x_resultado - (Fx(funcion, x_resultado) / ((Fx(funcion, x_resultado + tolerancia) - Fx(funcion, x_resultado)) / tolerancia));
+                    error = (x_resultado == 0) ? 1 : CalcularError(x_resultado, x_ant);
                     if (double.IsInfinity(x_resultado) || double.IsNaN(x_resultado) || double.IsNaN(Fx(funcion, x_resultado)) || double.IsInfinity(Fx(funcion, x_resultado)))
                     {
                         resultado.Ok = false;
@@ -193,7 +195,6 @@ namespace Logica.Unidad_1
                     }
                     else
                     {
-                        x_inicial = x_resultado;
                         x_ant = x_resultado;
                     }
                 }
@@ -245,7 +246,15 @@ namespace Logica.Unidad_1
                 }
                 else
                 {
-                    error = (x_izquierda + x_derecha == 0) ? 1 : CalcularError(x_izquierda, x_ant);
+                    if ((x_izquierda + x_derecha) == 0)
+                    {
+                        error = 1;
+                    }
+                    else
+                    {
+                        error = CalcularError(x_resultado, x_ant);
+                    }
+                    //error = (x_izquierda + x_derecha == 0) ? 1 : CalcularError(x_izquierda, x_ant);
                     if (Math.Abs(Fx(funcion, x_resultado)) < tolerancia || error < tolerancia || intentos > iteraciones)
                     {
                         result.Resolucion = x_resultado;

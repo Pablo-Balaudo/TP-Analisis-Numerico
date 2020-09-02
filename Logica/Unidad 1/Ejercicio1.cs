@@ -175,9 +175,21 @@ namespace Logica.Unidad_1
                     intentos++;
                     double x_resultado = x_inicial - operacion / ((Fx(funcion, (x_inicial + tolerancia)) - operacion) / tolerancia);
                     double error = CalcularError(x_resultado, x_ant);
+                    if (double.IsInfinity(x_resultado) || double.IsNaN(x_resultado) || double.IsNaN(Fx(funcion, x_resultado)) || double.IsInfinity(Fx(funcion, x_resultado)))
+                    {
+                        resultado.Ok = false;
+                        resultado.Mensaje = "El método no converge";
+                        return resultado;
+                    }
                     if (Math.Abs(Fx(funcion, x_resultado)) < tolerancia | error < tolerancia | intentos >= iteraciones)
                     {
-                        return new Resultado(intentos, tolerancia, x_resultado, true, "");
+                        resultado.Resolucion = x_resultado;
+                        resultado.Iteraciones = intentos;
+                        if (Math.Abs(Fx(funcion, x_resultado)) < tolerancia)
+                            resultado.Tolerancia = Math.Abs(Fx(funcion, x_resultado));
+                        else
+                            resultado.Tolerancia = error;
+                        return resultado;                    
                     }
                     else
                     {

@@ -96,26 +96,26 @@ namespace WFAnalisisNumerico
         // btn3: metodo de Newton-Raphson
         private void btn3_Obtener_Click(object sender, EventArgs e)
         {
-            if (!ChequearTextBoxs(sender, e))
-            {
-                 MessageBox.Show("Campos Vacios");
-            }
-            else
-            {
+            //if (!ChequearTextBoxs(sender, e))
+            //{
+              //   MessageBox.Show("Campos Vacios");
+            //}
+            //else
+            //{
                 Resultado res = Ejercicio1.Newton(txt_Funcion.Text, int.Parse(txt_Iter.Text),
                         double.Parse(txt_Tole.Text), float.Parse(txt_LI.Text));
 
-                if (!res.Ok)
+                 if (!res.Ok)
                  {
                      MessageBox.Show(res.Mensaje);
                  }
                  else
                  {
-                     lbl_Iter_1.Text = res.Iteraciones.ToString();
-                     lbl_Tole_1.Text = res.Tolerancia.ToString();
-                     lbl_Solucion_1.Text = res.Resolucion.ToString();
+                     lbl_Ite_3.Text = res.Iteraciones.ToString();
+                     lbl_Tole_3.Text = res.Tolerancia.ToString();
+                     lbl_Solu_3.Text = res.Resolucion.ToString();
                  }
-            }
+            //}
         }
 
         //Metodo de la Secante

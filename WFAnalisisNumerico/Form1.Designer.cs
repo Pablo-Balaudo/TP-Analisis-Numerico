@@ -80,6 +80,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
             this.Panel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabTan.SuspendLayout();
@@ -353,6 +354,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.lbl_Solu_3);
             this.groupBox4.Controls.Add(this.lbl_Tole_3);
             this.groupBox4.Controls.Add(this.lbl_Ite_3);
@@ -658,6 +660,15 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(5, 135);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(176, 13);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Para este método, utilizar solo el L.I!";
+            // 
             // AnalisisNumerico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -742,6 +753,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label9;
     }
 }
 

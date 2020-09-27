@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
 using Logica.Unidad_1;
+using Logica.Unidad_2;
 using Calculus;
 
 namespace WFAnalisisNumerico 
@@ -258,11 +259,103 @@ namespace WFAnalisisNumerico
             }
         }
 
+        public void MostrarEnPantalla(Resultado_TP2 result)
+        {
+            string[] v = new string[5] { "x = ", "y = ", "z = ", "t = ", "s = " };
+            lbl_texto.Visible = true;
+            lbl_texto.Text = result.Mensaje;
+            lbl_texto.Font = new Font(lbl_texto.Font.Name, 10);
+            panel2.Controls.Add(lbl_texto);
+            int pointX = 25;
+            int pointY = 225;
+            for (int i = 0; i < result.Resoluciones.Length; i++)
+            {
+                Label lbl = new Label
+                {
+                    Name = "lbl_Resultado_" + i,
+                    AutoSize = false,
+                    Size = new Size(120, 17)
+                };
+                lbl.Font = new Font(lbl.Font.Name, 10);
+                lbl.Location = new Point(pointX, pointY);
+                lbl.Text = v[i] + Math.Round(result.Resoluciones[i], 6);
+                lbl.ForeColor = Color.Red;
+                panel2.Controls.Add(lbl);
+                panel2.Show();
+                pointX += 120;
+            }
+            if (result.Iteraciones != 0)
+            {
+                Label lbl = new Label();
+                lbl.Name = "lbl_Iteraciones";
+                lbl.AutoSize = false;
+                lbl.Size = new System.Drawing.Size(200, 17);
+                lbl.Font = new Font(lbl.Font.Name, 10);
+                lbl.Location = new Point(25, 250);
+                lbl.Text = "Cantidad de Iteraciones: " + result.Iteraciones;
+                lbl.ForeColor = Color.Green;
+                panel2.Controls.Add(lbl);
+                panel2.Show();
+            }
+        }   
 
         private void Btn_Resolver_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void btn_Resolver_Click_1(object sender, EventArgs e)
+        {
+                        int dim = int.Parse(textBox1.Text);
+            bool camposvacios = false;
+            for (int i=1; i<=dim + 1; i++)
+            {
+                for (int j = 1; j <= dim; j++)
+                {
+                    string nom = "txt" + j + i;
+                    Control[] m = panel2.Controls.Find(nom, true);
+                    if (m[0].Text.Trim() == string.Empty)
+                    {
+                        MessageBox.Show("Hay campos vacíos!");
+                        camposvacios = true;
+                    }
+                }
+            }
+            if (!camposvacios)
+            {
+                string[] aux;
+                double[,] matriz = new double[dim, dim + 1];
+                for (int i = 0; i < dim; i++)
+                {
+                    for (int j = 0; j < dim + 1; j++)
+                    {
+                        string nom = "txt";
+                        int x = j + 1;
+                        int y = i + 1;
+                        nom = nom + y + x;
+                        Control[] m = panel2.Controls.Find(nom, true);
+                        if (m[0].Text.Contains("/"))
+                        {
+                            aux = m[0].Text.Split(new char[] { '/' }, 2);
+                            matriz[i, j] = double.Parse(aux[0]) / double.Parse(aux[1]);
+                        }
+                        else
+                        {
+                            matriz[i, j] = double.Parse(m[0].Text);
+                        }
+                    }
+                }
+                if (cmb_Metodos.SelectedIndex == 0)
+                {
+                    Resultado_TP2 result = Logica.Unidad_2.Practico2.GaussJordan(matriz, dim, false);
+                    if (result.Ok)
+                        MostrarEnPantalla(result);
+                }
+
+            }
+        }
+
+
 
         // SEGUNDO PRACTICO ----------------------------------------------------------------
 

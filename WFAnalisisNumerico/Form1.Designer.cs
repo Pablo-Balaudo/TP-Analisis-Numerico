@@ -81,18 +81,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_Resolver = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_texto = new System.Windows.Forms.Label();
+            this.check_Pivoteo = new System.Windows.Forms.CheckBox();
+            this.lbl_Pivoteo = new System.Windows.Forms.Label();
+            this.txt_Iter_Practico2 = new System.Windows.Forms.TextBox();
+            this.cmb_Metodos = new System.Windows.Forms.ComboBox();
             this.lbl_iteraciones_Practico2 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.btn_Generar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txt_Iter_Practico2 = new System.Windows.Forms.TextBox();
-            this.cmb_Metodos = new System.Windows.Forms.ComboBox();
-            this.lbl_Pivoteo = new System.Windows.Forms.Label();
-            this.check_Pivoteo = new System.Windows.Forms.CheckBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lbl_texto = new System.Windows.Forms.Label();
-            this.btn_Resolver = new System.Windows.Forms.Button();
             this.Panel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabTan.SuspendLayout();
@@ -694,6 +694,78 @@
             this.tabPage2.Text = "Unidad 2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btn_Resolver
+            // 
+            this.btn_Resolver.BackColor = System.Drawing.Color.PaleGreen;
+            this.btn_Resolver.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_Resolver.Location = new System.Drawing.Point(650, 371);
+            this.btn_Resolver.Name = "btn_Resolver";
+            this.btn_Resolver.Size = new System.Drawing.Size(115, 23);
+            this.btn_Resolver.TabIndex = 75;
+            this.btn_Resolver.Text = "Resolver";
+            this.btn_Resolver.UseVisualStyleBackColor = false;
+            this.btn_Resolver.Visible = false;
+            this.btn_Resolver.Click += new System.EventHandler(this.btn_Resolver_Click_1);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lbl_texto);
+            this.panel2.Location = new System.Drawing.Point(8, 76);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(755, 288);
+            this.panel2.TabIndex = 74;
+            // 
+            // lbl_texto
+            // 
+            this.lbl_texto.AutoSize = true;
+            this.lbl_texto.Location = new System.Drawing.Point(3, 260);
+            this.lbl_texto.Name = "lbl_texto";
+            this.lbl_texto.Size = new System.Drawing.Size(34, 13);
+            this.lbl_texto.TabIndex = 0;
+            this.lbl_texto.Text = "lbl_txt";
+            this.lbl_texto.Visible = false;
+            // 
+            // check_Pivoteo
+            // 
+            this.check_Pivoteo.AutoSize = true;
+            this.check_Pivoteo.Location = new System.Drawing.Point(691, 41);
+            this.check_Pivoteo.Name = "check_Pivoteo";
+            this.check_Pivoteo.Size = new System.Drawing.Size(15, 14);
+            this.check_Pivoteo.TabIndex = 73;
+            this.check_Pivoteo.UseVisualStyleBackColor = true;
+            // 
+            // lbl_Pivoteo
+            // 
+            this.lbl_Pivoteo.AutoSize = true;
+            this.lbl_Pivoteo.Location = new System.Drawing.Point(640, 42);
+            this.lbl_Pivoteo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_Pivoteo.Name = "lbl_Pivoteo";
+            this.lbl_Pivoteo.Size = new System.Drawing.Size(46, 13);
+            this.lbl_Pivoteo.TabIndex = 72;
+            this.lbl_Pivoteo.Text = "Pivoteo:";
+            // 
+            // txt_Iter_Practico2
+            // 
+            this.txt_Iter_Practico2.Location = new System.Drawing.Point(533, 39);
+            this.txt_Iter_Practico2.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_Iter_Practico2.Name = "txt_Iter_Practico2";
+            this.txt_Iter_Practico2.Size = new System.Drawing.Size(76, 20);
+            this.txt_Iter_Practico2.TabIndex = 70;
+            this.txt_Iter_Practico2.Visible = false;
+            // 
+            // cmb_Metodos
+            // 
+            this.cmb_Metodos.FormattingEnabled = true;
+            this.cmb_Metodos.Items.AddRange(new object[] {
+            "Gauss - Jordan",
+            "Gauss - Seidel"});
+            this.cmb_Metodos.Location = new System.Drawing.Point(588, 7);
+            this.cmb_Metodos.Name = "cmb_Metodos";
+            this.cmb_Metodos.Size = new System.Drawing.Size(121, 21);
+            this.cmb_Metodos.TabIndex = 69;
+            this.cmb_Metodos.Text = "Gauss - Jordan";
+            // 
             // lbl_iteraciones_Practico2
             // 
             this.lbl_iteraciones_Practico2.AutoSize = true;
@@ -745,77 +817,6 @@
             this.label10.Size = new System.Drawing.Size(171, 13);
             this.label10.TabIndex = 2;
             this.label10.Text = "Cantidad de elementos de la matriz";
-            // 
-            // txt_Iter_Practico2
-            // 
-            this.txt_Iter_Practico2.Location = new System.Drawing.Point(533, 39);
-            this.txt_Iter_Practico2.Margin = new System.Windows.Forms.Padding(2);
-            this.txt_Iter_Practico2.Name = "txt_Iter_Practico2";
-            this.txt_Iter_Practico2.Size = new System.Drawing.Size(76, 20);
-            this.txt_Iter_Practico2.TabIndex = 70;
-            this.txt_Iter_Practico2.Visible = false;
-            // 
-            // cmb_Metodos
-            // 
-            this.cmb_Metodos.FormattingEnabled = true;
-            this.cmb_Metodos.Items.AddRange(new object[] {
-            "Gauss - Jordan",
-            "Gauss - Seidel"});
-            this.cmb_Metodos.Location = new System.Drawing.Point(588, 7);
-            this.cmb_Metodos.Name = "cmb_Metodos";
-            this.cmb_Metodos.Size = new System.Drawing.Size(121, 21);
-            this.cmb_Metodos.TabIndex = 69;
-            this.cmb_Metodos.Text = "Gauss - Jordan";
-            // 
-            // lbl_Pivoteo
-            // 
-            this.lbl_Pivoteo.AutoSize = true;
-            this.lbl_Pivoteo.Location = new System.Drawing.Point(640, 42);
-            this.lbl_Pivoteo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_Pivoteo.Name = "lbl_Pivoteo";
-            this.lbl_Pivoteo.Size = new System.Drawing.Size(46, 13);
-            this.lbl_Pivoteo.TabIndex = 72;
-            this.lbl_Pivoteo.Text = "Pivoteo:";
-            // 
-            // check_Pivoteo
-            // 
-            this.check_Pivoteo.AutoSize = true;
-            this.check_Pivoteo.Location = new System.Drawing.Point(691, 41);
-            this.check_Pivoteo.Name = "check_Pivoteo";
-            this.check_Pivoteo.Size = new System.Drawing.Size(15, 14);
-            this.check_Pivoteo.TabIndex = 73;
-            this.check_Pivoteo.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lbl_texto);
-            this.panel2.Location = new System.Drawing.Point(8, 76);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(755, 288);
-            this.panel2.TabIndex = 74;
-            // 
-            // lbl_texto
-            // 
-            this.lbl_texto.AutoSize = true;
-            this.lbl_texto.Location = new System.Drawing.Point(3, 260);
-            this.lbl_texto.Name = "lbl_texto";
-            this.lbl_texto.Size = new System.Drawing.Size(34, 13);
-            this.lbl_texto.TabIndex = 0;
-            this.lbl_texto.Text = "lbl_txt";
-            this.lbl_texto.Visible = false;
-            // 
-            // btn_Resolver
-            // 
-            this.btn_Resolver.BackColor = System.Drawing.Color.PaleGreen;
-            this.btn_Resolver.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_Resolver.Location = new System.Drawing.Point(650, 371);
-            this.btn_Resolver.Name = "btn_Resolver";
-            this.btn_Resolver.Size = new System.Drawing.Size(115, 23);
-            this.btn_Resolver.TabIndex = 75;
-            this.btn_Resolver.Text = "Resolver";
-            this.btn_Resolver.UseVisualStyleBackColor = false;
-            this.btn_Resolver.Visible = false;
             // 
             // AnalisisNumerico
             // 

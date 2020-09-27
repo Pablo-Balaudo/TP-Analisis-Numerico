@@ -279,6 +279,7 @@ namespace Logica.Unidad_1
             result.Mensaje = "El método no converge.";
             return result;
         }
+
      
     }
 }

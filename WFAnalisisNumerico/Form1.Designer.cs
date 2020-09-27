@@ -52,6 +52,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.lbl_Solu_3 = new System.Windows.Forms.Label();
             this.lbl_Tole_3 = new System.Windows.Forms.Label();
             this.lbl_Ite_3 = new System.Windows.Forms.Label();
@@ -80,7 +81,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lbl_iteraciones_Practico2 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.btn_Generar = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txt_Iter_Practico2 = new System.Windows.Forms.TextBox();
+            this.cmb_Metodos = new System.Windows.Forms.ComboBox();
+            this.lbl_Pivoteo = new System.Windows.Forms.Label();
+            this.check_Pivoteo = new System.Windows.Forms.CheckBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_texto = new System.Windows.Forms.Label();
+            this.btn_Resolver = new System.Windows.Forms.Button();
             this.Panel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabTan.SuspendLayout();
@@ -93,6 +105,8 @@
             this.tabPage6.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel
@@ -370,6 +384,15 @@
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Datos de salida";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(5, 135);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(176, 13);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Para este método, utilizar solo el L.I!";
             // 
             // lbl_Solu_3
             // 
@@ -652,22 +675,147 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btn_Resolver);
+            this.tabPage2.Controls.Add(this.panel2);
+            this.tabPage2.Controls.Add(this.check_Pivoteo);
+            this.tabPage2.Controls.Add(this.lbl_Pivoteo);
+            this.tabPage2.Controls.Add(this.txt_Iter_Practico2);
+            this.tabPage2.Controls.Add(this.cmb_Metodos);
+            this.tabPage2.Controls.Add(this.lbl_iteraciones_Practico2);
+            this.tabPage2.Controls.Add(this.label15);
+            this.tabPage2.Controls.Add(this.btn_Generar);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(768, 400);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Unidad 2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // lbl_iteraciones_Practico2
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(5, 135);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(176, 13);
-            this.label9.TabIndex = 28;
-            this.label9.Text = "Para este método, utilizar solo el L.I!";
+            this.lbl_iteraciones_Practico2.AutoSize = true;
+            this.lbl_iteraciones_Practico2.Location = new System.Drawing.Point(467, 42);
+            this.lbl_iteraciones_Practico2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_iteraciones_Practico2.Name = "lbl_iteraciones_Practico2";
+            this.lbl_iteraciones_Practico2.Size = new System.Drawing.Size(62, 13);
+            this.lbl_iteraciones_Practico2.TabIndex = 68;
+            this.lbl_iteraciones_Practico2.Text = "Iteraciones:";
+            this.lbl_iteraciones_Practico2.Visible = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(467, 10);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(116, 13);
+            this.label15.TabIndex = 67;
+            this.label15.Text = "Seleccione un método:";
+            // 
+            // btn_Generar
+            // 
+            this.btn_Generar.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Generar.Location = new System.Drawing.Point(88, 32);
+            this.btn_Generar.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_Generar.Name = "btn_Generar";
+            this.btn_Generar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_Generar.Size = new System.Drawing.Size(56, 24);
+            this.btn_Generar.TabIndex = 64;
+            this.btn_Generar.Text = "Generar";
+            this.btn_Generar.UseVisualStyleBackColor = false;
+            this.btn_Generar.Click += new System.EventHandler(this.btn_Generar_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(8, 35);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(76, 20);
+            this.textBox1.TabIndex = 63;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(5, 10);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(171, 13);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Cantidad de elementos de la matriz";
+            // 
+            // txt_Iter_Practico2
+            // 
+            this.txt_Iter_Practico2.Location = new System.Drawing.Point(533, 39);
+            this.txt_Iter_Practico2.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_Iter_Practico2.Name = "txt_Iter_Practico2";
+            this.txt_Iter_Practico2.Size = new System.Drawing.Size(76, 20);
+            this.txt_Iter_Practico2.TabIndex = 70;
+            this.txt_Iter_Practico2.Visible = false;
+            // 
+            // cmb_Metodos
+            // 
+            this.cmb_Metodos.FormattingEnabled = true;
+            this.cmb_Metodos.Items.AddRange(new object[] {
+            "Gauss - Jordan",
+            "Gauss - Seidel"});
+            this.cmb_Metodos.Location = new System.Drawing.Point(588, 7);
+            this.cmb_Metodos.Name = "cmb_Metodos";
+            this.cmb_Metodos.Size = new System.Drawing.Size(121, 21);
+            this.cmb_Metodos.TabIndex = 69;
+            this.cmb_Metodos.Text = "Gauss - Jordan";
+            // 
+            // lbl_Pivoteo
+            // 
+            this.lbl_Pivoteo.AutoSize = true;
+            this.lbl_Pivoteo.Location = new System.Drawing.Point(640, 42);
+            this.lbl_Pivoteo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_Pivoteo.Name = "lbl_Pivoteo";
+            this.lbl_Pivoteo.Size = new System.Drawing.Size(46, 13);
+            this.lbl_Pivoteo.TabIndex = 72;
+            this.lbl_Pivoteo.Text = "Pivoteo:";
+            // 
+            // check_Pivoteo
+            // 
+            this.check_Pivoteo.AutoSize = true;
+            this.check_Pivoteo.Location = new System.Drawing.Point(691, 41);
+            this.check_Pivoteo.Name = "check_Pivoteo";
+            this.check_Pivoteo.Size = new System.Drawing.Size(15, 14);
+            this.check_Pivoteo.TabIndex = 73;
+            this.check_Pivoteo.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lbl_texto);
+            this.panel2.Location = new System.Drawing.Point(8, 76);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(755, 288);
+            this.panel2.TabIndex = 74;
+            // 
+            // lbl_texto
+            // 
+            this.lbl_texto.AutoSize = true;
+            this.lbl_texto.Location = new System.Drawing.Point(3, 260);
+            this.lbl_texto.Name = "lbl_texto";
+            this.lbl_texto.Size = new System.Drawing.Size(34, 13);
+            this.lbl_texto.TabIndex = 0;
+            this.lbl_texto.Text = "lbl_txt";
+            this.lbl_texto.Visible = false;
+            // 
+            // btn_Resolver
+            // 
+            this.btn_Resolver.BackColor = System.Drawing.Color.PaleGreen;
+            this.btn_Resolver.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_Resolver.Location = new System.Drawing.Point(650, 371);
+            this.btn_Resolver.Name = "btn_Resolver";
+            this.btn_Resolver.Size = new System.Drawing.Size(115, 23);
+            this.btn_Resolver.TabIndex = 75;
+            this.btn_Resolver.Text = "Resolver";
+            this.btn_Resolver.UseVisualStyleBackColor = false;
+            this.btn_Resolver.Visible = false;
             // 
             // AnalisisNumerico
             // 
@@ -695,6 +843,10 @@
             this.groupBox6.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -754,6 +906,18 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btn_Generar;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbl_iteraciones_Practico2;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lbl_texto;
+        private System.Windows.Forms.CheckBox check_Pivoteo;
+        private System.Windows.Forms.Label lbl_Pivoteo;
+        private System.Windows.Forms.TextBox txt_Iter_Practico2;
+        private System.Windows.Forms.ComboBox cmb_Metodos;
+        private System.Windows.Forms.Button btn_Resolver;
     }
 }
 

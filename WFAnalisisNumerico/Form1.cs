@@ -137,5 +137,134 @@ namespace WFAnalisisNumerico
             }
 
         }
+
+        private void Txt_Iter_Practico2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Txt_Iter_Practico2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void Cmb_Metodos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox1_KeyPress(object sender, KeyPressEventArgs e) //para ingresar solo numeros
+        {
+            Char chr = e.KeyChar;
+            if (!Char.IsDigit(chr) && chr != 8 && chr != 47 && chr != 44 && chr != 45)
+            {
+                e.Handled = true;
+            }
+        }
+
+
+        private void btn_Generar_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Trim() == string.Empty)
+            {
+                textBox1.BackColor = Color.Red;
+                MessageBox.Show("No se ha ingresado un numero de ecuaciones.");
+            }
+            else
+            {
+                int matriz = int.Parse(textBox1.Text);
+                int pointX = 30;
+                int pointY = 40;
+                panel2.Controls.Clear();
+                if (matriz >= 2 && matriz <= 5)
+                {
+                    for (int j = 1; j <= matriz + 1; j++)
+                    {
+                        pointY = 40;
+                        for (int i = 1; i <= matriz; i++)
+                        {
+                            string nombretxt = "txt" + i + j;
+                            string nombrelabel = "lbl" + i + j;
+                            TextBox a = new TextBox
+                            {
+                                AutoSize = false,
+                                Size = new Size(50, 22),
+                                Name = nombretxt,
+                                Location = new Point(pointX, pointY)
+                            };
+                            panel2.Controls.Add(a);
+                            Label lbl = new Label
+                            {
+                                Name = nombrelabel,
+                                AutoSize = false,
+                                Size = new Size(30, 22)
+                            };
+                            switch (j)
+                            {
+                                case 1:
+                                    lbl.Text = "x  +";
+                                    lbl.Location = new Point(pointX + 55, pointY + 2);
+                                    break;
+                                case 2:
+                                    lbl.Text = "y  +";
+                                    lbl.Location = new Point(pointX + 55, pointY + 2);
+                                    if (matriz == 2)
+                                    {
+                                        lbl.Text = "y  =";
+                                    }
+                                    break;
+                                case 3:
+                                    lbl.Text = "z  +";
+                                    lbl.Location = new Point(pointX + 55, pointY + 2);
+                                    if (matriz == 3)
+                                    {
+                                        lbl.Text = "z  =";
+                                    }
+                                    if (matriz == 2)
+                                    {
+                                        lbl.Visible = false;
+                                    }
+                                    break;
+                                case 4:
+                                    lbl.Text = "u   +";
+                                    lbl.Location = new Point(pointX + 55, pointY + 2);
+                                    if (matriz == 4)
+                                    {
+                                        lbl.Text = "u  =";
+                                    }
+                                    if (matriz == 3)
+                                    {
+                                        lbl.Visible = false;
+                                    }
+                                    break;
+                                case 5:
+                                    lbl.Text = "v  =";
+                                    lbl.Location = new Point(pointX + 55, pointY + 2);
+                                    if (matriz == 4)
+                                    {
+                                        lbl.Visible = false;
+                                    }
+                                    break;
+                            }
+                            panel2.Controls.Add(lbl);
+                            panel2.Show();
+                            pointY += 30;
+                            a.KeyPress += new KeyPressEventHandler(TextBox1_KeyPress);
+                        }
+                        pointX += 90;
+                    }
+                    btn_Resolver.Visible = true;
+                }
+            }
+        }
+
+
+        private void Btn_Resolver_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // SEGUNDO PRACTICO ----------------------------------------------------------------
+
     }
 }

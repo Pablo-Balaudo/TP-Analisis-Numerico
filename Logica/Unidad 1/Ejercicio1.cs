@@ -234,7 +234,7 @@ namespace Logica.Unidad_1
                 result.Mensaje = "El método no converge";
                 return result;
             }
-            while (true)
+            while (intentos < iteraciones)
             {
                 intentos++;
                 x_resultado = ((Fx(funcion, x_izquierda) * x_derecha - Fx(funcion, x_derecha) * x_izquierda) / (-Fx(funcion, x_derecha) + Fx(funcion, x_izquierda)));
@@ -275,6 +275,9 @@ namespace Logica.Unidad_1
                     }
                 }
             }
+            result.Ok = false;
+            result.Mensaje = "El método no converge.";
+            return result;
         }
      
     }

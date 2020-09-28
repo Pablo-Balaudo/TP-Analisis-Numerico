@@ -203,23 +203,23 @@ namespace WFAnalisisNumerico
                             switch (j)
                             {
                                 case 1:
-                                    lbl.Text = "x  +";
+                                    lbl.Text = "x1  +";
                                     lbl.Location = new Point(pointX + 55, pointY + 2);
                                     break;
                                 case 2:
-                                    lbl.Text = "y  +";
+                                    lbl.Text = "x2  +";
                                     lbl.Location = new Point(pointX + 55, pointY + 2);
                                     if (matriz == 2)
                                     {
-                                        lbl.Text = "y  =";
+                                        lbl.Text = "x2  =";
                                     }
                                     break;
                                 case 3:
-                                    lbl.Text = "z  +";
+                                    lbl.Text = "x3  +";
                                     lbl.Location = new Point(pointX + 55, pointY + 2);
                                     if (matriz == 3)
                                     {
-                                        lbl.Text = "z  =";
+                                        lbl.Text = "x3  =";
                                     }
                                     if (matriz == 2)
                                     {
@@ -227,11 +227,11 @@ namespace WFAnalisisNumerico
                                     }
                                     break;
                                 case 4:
-                                    lbl.Text = "u   +";
+                                    lbl.Text = "x4   +";
                                     lbl.Location = new Point(pointX + 55, pointY + 2);
                                     if (matriz == 4)
                                     {
-                                        lbl.Text = "u  =";
+                                        lbl.Text = "x4  =";
                                     }
                                     if (matriz == 3)
                                     {
@@ -239,7 +239,7 @@ namespace WFAnalisisNumerico
                                     }
                                     break;
                                 case 5:
-                                    lbl.Text = "v  =";
+                                    lbl.Text = "x5  =";
                                     lbl.Location = new Point(pointX + 55, pointY + 2);
                                     if (matriz == 4)
                                     {
@@ -261,12 +261,16 @@ namespace WFAnalisisNumerico
 
         public void MostrarEnPantalla(Resultado_TP2 result)
         {
-            string[] v = new string[5] { "x = ", "y = ", "z = ", "t = ", "s = " };
+            string[] v = new string[5] { "x1 = ", "x2 = ", "x3 = ", "x4 = ", "x5 = " };
             lbl_texto.Visible = true;
-            lbl_texto.Text = result.Mensaje;
-            lbl_texto.Font = new Font(lbl_texto.Font.Name, 10);
+            if (result.Mensaje != "")
+                lbl_texto.Text = result.Mensaje;
+            else
+                lbl_texto.Text = "El método llegó a una solución.";
+            lbl_texto.Font = new Font(FontFamily.GenericSansSerif,
+            12.0F, FontStyle.Bold);
             panel2.Controls.Add(lbl_texto);
-            int pointX = 25;
+            int pointX = 55;
             int pointY = 225;
             for (int i = 0; i < result.Resoluciones.Length; i++)
             {
@@ -279,7 +283,7 @@ namespace WFAnalisisNumerico
                 lbl.Font = new Font(lbl.Font.Name, 10);
                 lbl.Location = new Point(pointX, pointY);
                 lbl.Text = v[i] + Math.Round(result.Resoluciones[i], 6);
-                lbl.ForeColor = Color.Red;
+                lbl.ForeColor = Color.DarkGreen;
                 panel2.Controls.Add(lbl);
                 panel2.Show();
                 pointX += 120;
@@ -289,7 +293,7 @@ namespace WFAnalisisNumerico
                 Label lbl = new Label();
                 lbl.Name = "lbl_Iteraciones";
                 lbl.AutoSize = false;
-                lbl.Size = new System.Drawing.Size(200, 17);
+                lbl.Size = new Size(200, 17);
                 lbl.Font = new Font(lbl.Font.Name, 10);
                 lbl.Location = new Point(25, 250);
                 lbl.Text = "Cantidad de Iteraciones: " + result.Iteraciones;
@@ -306,7 +310,7 @@ namespace WFAnalisisNumerico
 
         private void btn_Resolver_Click_1(object sender, EventArgs e)
         {
-                        int dim = int.Parse(textBox1.Text);
+            int dim = int.Parse(textBox1.Text);
             bool camposvacios = false;
             for (int i=1; i<=dim + 1; i++)
             {
@@ -345,12 +349,19 @@ namespace WFAnalisisNumerico
                         }
                     }
                 }
+                Resultado_TP2 result = new Resultado_TP2(false, "", 0, 0);
                 if (cmb_Metodos.SelectedIndex == 0)
                 {
-                    Resultado_TP2 result = Logica.Unidad_2.Practico2.GaussJordan(matriz, dim, false);
-                    if (result.Ok)
-                        MostrarEnPantalla(result);
+                    result = Practico2.GaussJordan(matriz, dim, false);
                 }
+                else
+                {
+                    double tole = 0.01;
+                    result = Practico2.GaussSeidel(matriz, dim, false, 100, tole);
+                }
+
+                if (result.Ok)
+                    MostrarEnPantalla(result);
 
             }
         }

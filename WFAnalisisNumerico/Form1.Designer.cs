@@ -84,11 +84,7 @@
             this.btn_Resolver = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_texto = new System.Windows.Forms.Label();
-            this.check_Pivoteo = new System.Windows.Forms.CheckBox();
-            this.lbl_Pivoteo = new System.Windows.Forms.Label();
-            this.txt_Iter_Practico2 = new System.Windows.Forms.TextBox();
             this.cmb_Metodos = new System.Windows.Forms.ComboBox();
-            this.lbl_iteraciones_Practico2 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.btn_Generar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -675,13 +671,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.tabPage2.Controls.Add(this.btn_Resolver);
             this.tabPage2.Controls.Add(this.panel2);
-            this.tabPage2.Controls.Add(this.check_Pivoteo);
-            this.tabPage2.Controls.Add(this.lbl_Pivoteo);
-            this.tabPage2.Controls.Add(this.txt_Iter_Practico2);
             this.tabPage2.Controls.Add(this.cmb_Metodos);
-            this.tabPage2.Controls.Add(this.lbl_iteraciones_Practico2);
             this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.btn_Generar);
             this.tabPage2.Controls.Add(this.textBox1);
@@ -692,11 +685,11 @@
             this.tabPage2.Size = new System.Drawing.Size(768, 400);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Unidad 2";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btn_Resolver
             // 
             this.btn_Resolver.BackColor = System.Drawing.Color.PaleGreen;
+            this.btn_Resolver.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Resolver.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_Resolver.Location = new System.Drawing.Point(650, 371);
             this.btn_Resolver.Name = "btn_Resolver";
@@ -726,61 +719,25 @@
             this.lbl_texto.Text = "lbl_txt";
             this.lbl_texto.Visible = false;
             // 
-            // check_Pivoteo
-            // 
-            this.check_Pivoteo.AutoSize = true;
-            this.check_Pivoteo.Location = new System.Drawing.Point(691, 41);
-            this.check_Pivoteo.Name = "check_Pivoteo";
-            this.check_Pivoteo.Size = new System.Drawing.Size(15, 14);
-            this.check_Pivoteo.TabIndex = 73;
-            this.check_Pivoteo.UseVisualStyleBackColor = true;
-            // 
-            // lbl_Pivoteo
-            // 
-            this.lbl_Pivoteo.AutoSize = true;
-            this.lbl_Pivoteo.Location = new System.Drawing.Point(640, 42);
-            this.lbl_Pivoteo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_Pivoteo.Name = "lbl_Pivoteo";
-            this.lbl_Pivoteo.Size = new System.Drawing.Size(46, 13);
-            this.lbl_Pivoteo.TabIndex = 72;
-            this.lbl_Pivoteo.Text = "Pivoteo:";
-            // 
-            // txt_Iter_Practico2
-            // 
-            this.txt_Iter_Practico2.Location = new System.Drawing.Point(533, 39);
-            this.txt_Iter_Practico2.Margin = new System.Windows.Forms.Padding(2);
-            this.txt_Iter_Practico2.Name = "txt_Iter_Practico2";
-            this.txt_Iter_Practico2.Size = new System.Drawing.Size(76, 20);
-            this.txt_Iter_Practico2.TabIndex = 70;
-            this.txt_Iter_Practico2.Visible = false;
-            // 
             // cmb_Metodos
             // 
+            this.cmb_Metodos.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.cmb_Metodos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmb_Metodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_Metodos.FormattingEnabled = true;
             this.cmb_Metodos.Items.AddRange(new object[] {
             "Gauss - Jordan",
             "Gauss - Seidel"});
-            this.cmb_Metodos.Location = new System.Drawing.Point(588, 7);
+            this.cmb_Metodos.Location = new System.Drawing.Point(220, 32);
             this.cmb_Metodos.Name = "cmb_Metodos";
-            this.cmb_Metodos.Size = new System.Drawing.Size(121, 21);
+            this.cmb_Metodos.Size = new System.Drawing.Size(185, 21);
             this.cmb_Metodos.TabIndex = 69;
             this.cmb_Metodos.Text = "Gauss - Jordan";
-            // 
-            // lbl_iteraciones_Practico2
-            // 
-            this.lbl_iteraciones_Practico2.AutoSize = true;
-            this.lbl_iteraciones_Practico2.Location = new System.Drawing.Point(467, 42);
-            this.lbl_iteraciones_Practico2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_iteraciones_Practico2.Name = "lbl_iteraciones_Practico2";
-            this.lbl_iteraciones_Practico2.Size = new System.Drawing.Size(62, 13);
-            this.lbl_iteraciones_Practico2.TabIndex = 68;
-            this.lbl_iteraciones_Practico2.Text = "Iteraciones:";
-            this.lbl_iteraciones_Practico2.Visible = false;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(467, 10);
+            this.label15.Location = new System.Drawing.Point(217, 13);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(116, 13);
@@ -790,11 +747,13 @@
             // btn_Generar
             // 
             this.btn_Generar.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Generar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Generar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Generar.Location = new System.Drawing.Point(88, 32);
             this.btn_Generar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Generar.Name = "btn_Generar";
             this.btn_Generar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_Generar.Size = new System.Drawing.Size(56, 24);
+            this.btn_Generar.Size = new System.Drawing.Size(67, 24);
             this.btn_Generar.TabIndex = 64;
             this.btn_Generar.Text = "Generar";
             this.btn_Generar.UseVisualStyleBackColor = false;
@@ -910,13 +869,9 @@
         private System.Windows.Forms.Button btn_Generar;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label lbl_iteraciones_Practico2;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lbl_texto;
-        private System.Windows.Forms.CheckBox check_Pivoteo;
-        private System.Windows.Forms.Label lbl_Pivoteo;
-        private System.Windows.Forms.TextBox txt_Iter_Practico2;
         private System.Windows.Forms.ComboBox cmb_Metodos;
         private System.Windows.Forms.Button btn_Resolver;
     }

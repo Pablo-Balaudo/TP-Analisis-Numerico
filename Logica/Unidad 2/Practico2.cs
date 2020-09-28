@@ -50,7 +50,7 @@ namespace Logica.Unidad_2
 
         // -------------------------------------------------Gauss Jordan-------------------------------------------------------
 
-        public static Resultado_TP2 GaussJordan(double[,] matriz, int dim, bool pivoteo)
+        public static Resultado_TP2 GaussJordan(double[,] matriz, int dim)
         {
             Resultado_TP2 result = new Resultado_TP2(true, "", dim, 0);
             double[] r = new double[dim];
@@ -83,7 +83,7 @@ namespace Logica.Unidad_2
         }
 
         // -------------------------------------------------Gauss Seidel-------------------------------------------------------
-        public static Resultado_TP2 GaussSeidel(double[,] matriz, int dim, bool pivoteo, int iter, double tole)
+        public static Resultado_TP2 GaussSeidel(double[,] matriz, int dim, int iter, double tole)
         {
             Resultado_TP2 result = new Resultado_TP2(true, "", dim, 0);
             

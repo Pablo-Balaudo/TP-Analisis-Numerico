@@ -261,7 +261,7 @@ namespace WFAnalisisNumerico
 
         public void MostrarEnPantalla(Resultado_TP2 result)
         {
-            string[] v = new string[5] { "x1 = ", "x2 = ", "x3 = ", "x4 = ", "x5 = " };
+            string[] s = new string[5] { "x1 = ", "x2 = ", "x3 = ", "x4 = ", "x5 = " };
             lbl_texto.Visible = true;
             if (result.Mensaje != "")
                 lbl_texto.Text = result.Mensaje;
@@ -282,7 +282,7 @@ namespace WFAnalisisNumerico
                 };
                 lbl.Font = new Font(lbl.Font.Name, 10);
                 lbl.Location = new Point(pointX, pointY);
-                lbl.Text = v[i] + Math.Round(result.Resoluciones[i], 6);
+                lbl.Text = s[i] + Math.Round(result.Resoluciones[i], 6);
                 lbl.ForeColor = Color.DarkGreen;
                 panel2.Controls.Add(lbl);
                 panel2.Show();
@@ -352,12 +352,12 @@ namespace WFAnalisisNumerico
                 Resultado_TP2 result = new Resultado_TP2(false, "", 0, 0);
                 if (cmb_Metodos.SelectedIndex == 0)
                 {
-                    result = Practico2.GaussJordan(matriz, dim, false);
+                    result = Practico2.GaussJordan(matriz, dim);
                 }
                 else
                 {
-                    double tole = 0.01;
-                    result = Practico2.GaussSeidel(matriz, dim, false, 100, tole);
+                    double tole = 0.001; //cambiar la tolerancia acá si se necesita
+                    result = Practico2.GaussSeidel(matriz, dim, 100, tole);
                 }
 
                 if (result.Ok)

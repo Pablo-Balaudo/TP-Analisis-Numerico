@@ -57,6 +57,7 @@ namespace Logica.Unidad_2
             bool b = false;
             int iteraciones = 0;
             double[] s_anterior = new double[dim];
+
             while(iteraciones < iter)
             {
                 for (int i = 0; i<dim; i++)

@@ -189,65 +189,17 @@ namespace WFAnalisisNumerico
                             TextBox a = new TextBox
                             {
                                 AutoSize = false,
-                                Size = new Size(50, 22),
+                                Size = new Size(70, 22),
                                 Name = nombretxt,
                                 Location = new Point(pointX, pointY)
                             };
-                            panel2.Controls.Add(a);
-                            Label lbl = new Label
+
+                            if (j == matriz + 1)
                             {
-                                Name = nombrelabel,
-                                AutoSize = false,
-                                Size = new Size(30, 22)
-                            };
-                            switch (j)
-                            {
-                                case 1:
-                                    lbl.Text = "x1  +";
-                                    lbl.Location = new Point(pointX + 55, pointY + 2);
-                                    break;
-                                case 2:
-                                    lbl.Text = "x2  +";
-                                    lbl.Location = new Point(pointX + 55, pointY + 2);
-                                    if (matriz == 2)
-                                    {
-                                        lbl.Text = "x2  =";
-                                    }
-                                    break;
-                                case 3:
-                                    lbl.Text = "x3  +";
-                                    lbl.Location = new Point(pointX + 55, pointY + 2);
-                                    if (matriz == 3)
-                                    {
-                                        lbl.Text = "x3  =";
-                                    }
-                                    if (matriz == 2)
-                                    {
-                                        lbl.Visible = false;
-                                    }
-                                    break;
-                                case 4:
-                                    lbl.Text = "x4   +";
-                                    lbl.Location = new Point(pointX + 55, pointY + 2);
-                                    if (matriz == 4)
-                                    {
-                                        lbl.Text = "x4  =";
-                                    }
-                                    if (matriz == 3)
-                                    {
-                                        lbl.Visible = false;
-                                    }
-                                    break;
-                                case 5:
-                                    lbl.Text = "x5  =";
-                                    lbl.Location = new Point(pointX + 55, pointY + 2);
-                                    if (matriz == 4)
-                                    {
-                                        lbl.Visible = false;
-                                    }
-                                    break;
+                                a.BackColor = Color.LightSkyBlue;
                             }
-                            panel2.Controls.Add(lbl);
+
+                            panel2.Controls.Add(a);
                             panel2.Show();
                             pointY += 30;
                             a.KeyPress += new KeyPressEventHandler(TextBox1_KeyPress);

@@ -218,11 +218,13 @@ namespace WFAnalisisNumerico
             if (result.Mensaje != "")
                 lbl_texto.Text = result.Mensaje;
             else
-                lbl_texto.Text = "El método llegó a una solución.";
-            lbl_texto.Font = new Font(FontFamily.GenericSansSerif,
-            12.0F, FontStyle.Bold);
+            {
+                lbl_texto.Text = "El método encontró las soluciones";
+            }
+
+            lbl_texto.Font = new Font(lbl_texto.Font.Name, 10);
             panel2.Controls.Add(lbl_texto);
-            int pointX = 55;
+            int pointX = 25;
             int pointY = 225;
             for (int i = 0; i < result.Resoluciones.Length; i++)
             {
@@ -308,12 +310,16 @@ namespace WFAnalisisNumerico
                 }
                 else
                 {
-                    double tole = 0.001; //cambiar la tolerancia acá si se necesita
+                    double tole = 0; //cambiar la tolerancia acá si se necesita
                     result = Practico2.GaussSeidel(matriz, dim, 100, tole);
                 }
 
                 if (result.Ok)
                     MostrarEnPantalla(result);
+                else
+                {
+                    MessageBox.Show(result.Mensaje);
+                }
 
             }
         }

@@ -89,7 +89,7 @@ namespace Logica.Unidad_2
                 //Evaluamos Tolerancia
                 for (int x = 0; x < dim; x++)
                 {
-                    if (Math.Abs(s_iterado[x] - s_anterior[x]) < tole)
+                    if (Math.Abs(s_iterado[x] - s_anterior[x]) <= tole)
                     {
                         cont += 1;
                     }
@@ -100,6 +100,7 @@ namespace Logica.Unidad_2
                     {
                         result.Resoluciones[x] = s_iterado[x];
                     }
+                    result.Iteraciones = iteraciones;
                     return result;
                 }
 

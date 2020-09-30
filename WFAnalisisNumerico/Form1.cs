@@ -214,7 +214,7 @@ namespace WFAnalisisNumerico
         public void MostrarEnPantalla(Resultado_TP2 result)
         {
             string[] s = new string[5] { "x1 = ", "x2 = ", "x3 = ", "x4 = ", "x5 = " };
-            lbl_texto.Visible = true;
+            lbl_texto.Visible = false;
             if (result.Mensaje != "")
                 lbl_texto.Text = result.Mensaje;
             else

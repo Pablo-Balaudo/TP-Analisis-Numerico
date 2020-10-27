@@ -310,8 +310,9 @@ namespace WFAnalisisNumerico
                 }
                 else
                 {
-                    double tole = 0; //cambiar la tolerancia acá si se necesita
-                    result = Practico2.GaussSeidel(matriz, dim, 100, tole);
+                    double tole = 0.0001; //cambiar la tolerancia acá si se necesita para el eje 5
+                    int ite = 100; // 2 para el ejercicio 5
+                    result = Practico2.GaussSeidel(matriz, dim, ite, tole);
                 }
 
                 if (result.Ok)

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Logica;
 using Logica.Unidad_1;
 using Logica.Unidad_2;
+using Logica.Unidad_4;
 using Calculus;
 
 namespace WFAnalisisNumerico 
@@ -325,9 +326,136 @@ namespace WFAnalisisNumerico
             }
         }
 
+        // unidad 4
 
+        private void Btn_obtener_tp4_Click(object sender, EventArgs e)
+        {
 
-        // SEGUNDO PRACTICO ----------------------------------------------------------------
+        }
 
+        private void cmb_metodos_tp4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmb_metodos_unidad4.Text == "Trapecio Simple" || cmb_metodos_unidad4.Text == "Simpson 1/3 Simple" || cmb_metodos_unidad4.Text == "Simpson 3/8 Simple")
+            {
+                lbl_n_tp4.Visible = false;
+                txt_n_tp4.Visible = false;
+            }
+            else
+            {
+                lbl_n_tp4.Visible = true;
+                txt_n_tp4.Visible = true;
+                txt_n_tp4.BackColor = Color.White;
+            }
+        }
+
+        private void Txt_a_tp4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Char chr = e.KeyChar;
+            if (!Char.IsDigit(chr) && chr != 8 && chr != 44 && chr != 45)
+            {
+                e.Handled = true;
+                //MessageBox.Show("Solo Numeros");
+            }
+        }
+        private void Txt_b_tp4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Char chr = e.KeyChar;
+            if (!Char.IsDigit(chr) && chr != 8 && chr != 44 && chr != 45)
+            {
+                e.Handled = true;
+                //MessageBox.Show("Solo Numeros");
+            }
+        }
+        private void Txt_n_tp4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Char chr = e.KeyChar;
+            if (!Char.IsDigit(chr) && chr != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_funcion_TP4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Char chr = e.KeyChar;
+            if (chr == 44)
+            {
+                e.Handled = true;
+            }
+        }
+
+        public void MostrarResultadoTP4(Resultado_TP4 result)
+        {
+            lbl_mensaje_tp4.Visible = true;
+            lbl_mensaje_tp4.Text = result.Mensaje;
+            lbl_mensaje_tp4.Font = new Font(lbl_mensaje_tp4.Font.Name, 10);
+            panel_tp4.Controls.Add(lbl_mensaje_tp4);
+            lbl_rdo_tp4.AutoSize = false;
+            lbl_rdo_tp4.Size = new Size(120, 17);
+            lbl_rdo_tp4.Font = new Font(lbl_rdo_tp4.Font.Name, 10);
+            //lbl_rdo_tp4.Location = new Point(pointX, pointY);
+            lbl_rdo_tp4.Text = Math.Round(result.Resolucion, 5).ToString() + " V.A";//Math.Abs(Math.Round(rdos.Solucion, 5)).ToString() + " V.A";
+            lbl_rdo_tp4.ForeColor = Color.Red;
+            lbl_rdo_tp4.Visible = true;
+            panel_tp4.Controls.Add(lbl_rdo_tp4);
+            panel_tp4.Update();
+            panel_tp4.Refresh();
+            panel_tp4.Show();
+        }
+
+        private void btn_obtener_tp4_Click_1(object sender, EventArgs e)
+        {
+            if (txt_funcion_TP4.Text.Trim() == string.Empty || txt_a_tp4.Text.Trim() == string.Empty || txt_b_tp4.Text.Trim() == string.Empty || ((cmb_metodos_unidad4.Text == "Trapecio Múltiple" || cmb_metodos_unidad4.Text == "Simpson 1/3 Múltiple") && txt_n_tp4.Text.Trim() == string.Empty))
+            {
+                if (txt_funcion_TP4.Text.Trim() == string.Empty)
+                    txt_funcion_TP4.BackColor = Color.Red;
+                if (txt_a_tp4.Text.Trim() == string.Empty)
+                    txt_a_tp4.BackColor = Color.Red;
+                if (txt_b_tp4.Text.Trim() == string.Empty)
+                    txt_b_tp4.BackColor = Color.Red;
+                if (txt_n_tp4.Text.Trim() == string.Empty)
+                    txt_n_tp4.BackColor = Color.Red;
+                MessageBox.Show("Por favor ingrese todos los datos");
+            }
+            else
+            {
+                string funcion = txt_funcion_TP4.Text;
+                double a = double.Parse(txt_a_tp4.Text);
+                double b = double.Parse(txt_b_tp4.Text);
+                int n = 0;
+                if (txt_n_tp4.Text.Trim() != string.Empty)
+                { n = int.Parse(txt_n_tp4.Text); }
+
+                Resultado_TP4 nuevo = new Resultado_TP4(true, "");
+                switch (cmb_metodos_unidad4.SelectedIndex)
+                {
+                    case 0:
+                        nuevo = Unidad4.CalcularTrapecioSimple(funcion, a, b);
+                        break;
+                    case 1:
+                        nuevo = Unidad4.CalcularTrapecioMultiple(a, b, funcion, n);
+                        break;
+                    case 2:
+                        nuevo = Unidad4.CalcularSimpsonUnTercioSimple(funcion, a, b);
+                        break;
+                    case 3:
+                        if (n % 2 != 0) //si es impar
+                        {
+                            double h = (b - a) / n;
+                            double Xnmenos3 = b - (3 * h);
+                            nuevo = Unidad4.CalcularSimpsonUnTercioMultiple(funcion, a, Xnmenos3, n - 3); //debemos hacer primero simpso1/3 multiple, y en los ultimos 3 simpson 3/8
+                            Resultado_TP4 nuevo2 = Unidad4.CalcularSimpsonTresOctavos(funcion, Xnmenos3, b);
+                            nuevo.Resolucion += nuevo2.Resolucion;
+                        }
+                        else //si es par calculamos simpson un tercio normalmente.
+                        { nuevo = Unidad4.CalcularSimpsonUnTercioMultiple(funcion, a, b, n); }
+                        break;
+                    case 4:
+                        nuevo = Unidad4.CalcularSimpsonTresOctavos(funcion, a, b);
+                        break;
+                }
+                MostrarResultadoTP4(nuevo);
+            }
+        }
     }
 }

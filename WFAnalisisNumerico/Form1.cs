@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Logica;
 using Logica.Unidad_1;
 using Logica.Unidad_2;
+using Logica.Unidad_3;
 using Logica.Unidad_4;
 using Calculus;
 
@@ -456,6 +457,73 @@ namespace WFAnalisisNumerico
                 }
                 MostrarResultadoTP4(nuevo);
             }
+        }
+
+        const int max_grado = 5;
+
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            for (int i = panel3.Controls.Count - 1; i >= 0; i--)
+            {
+                if ((panel3.Controls[i] is Label label) && (label.Name != "lbl_textoMC"))
+                {
+                    panel3.Controls.RemoveAt(i);
+                    label.Dispose();
+                }
+            }
+
+            lbl_coeficiente.Visible = false;
+            panel3.Update();
+            panel3.Refresh();
+
+            double[] vectorX = new double[15];
+            double[] vectorY = new double[15];
+
+            //Vector de valores x
+            int contador = -1;
+            foreach (DataGridViewRow row in dgvXeY.Rows)
+            {
+                contador += 1;
+                string codigo = Convert.ToString(row.Cells["X"].Value);
+                if (codigo != "")
+                { vectorX[contador] = double.Parse(codigo); }
+            }
+            int grad = contador - 1;
+
+            //Vector de valores y
+            contador = -1;
+            foreach (DataGridViewRow row in dgvXeY.Rows)
+            {
+                contador += 1;
+                string codigo = Convert.ToString(row.Cells["Y"].Value);
+                if (codigo != "")
+                { vectorY[contador] = double.Parse(codigo); }
+            }
+
+            grad = int.Parse(txt_Grado.Text); 
+        }
+
+        private void Txt_TP3_Tolerancia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Char chr = e.KeyChar;
+            if (!Char.IsDigit(chr) && chr != 8 && chr != 44) // Cambiar por el 44 por 46 para que sea un .
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Txt_Grado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Char chr = e.KeyChar;
+            if (!Char.IsDigit(chr) && chr != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_Grado_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

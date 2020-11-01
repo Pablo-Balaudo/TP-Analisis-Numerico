@@ -90,8 +90,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.txt_valor_lagrange = new System.Windows.Forms.TextBox();
-            this.lbl_valor_lagrange = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txt_TP3_Tolerancia = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -100,21 +98,25 @@
             this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.panel_tp4 = new System.Windows.Forms.Panel();
+            this.lbl_rdo_tp4 = new System.Windows.Forms.Label();
+            this.lbl_mensaje_tp4 = new System.Windows.Forms.Label();
+            this.gpb_tp4 = new System.Windows.Forms.GroupBox();
             this.btn_obtener_tp4 = new System.Windows.Forms.Button();
+            this.lbl_n_tp4 = new System.Windows.Forms.Label();
             this.txt_n_tp4 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.cmb_metodos_unidad4 = new System.Windows.Forms.ComboBox();
             this.txt_funcion_TP4 = new System.Windows.Forms.TextBox();
             this.txt_b_tp4 = new System.Windows.Forms.TextBox();
             this.txt_a_tp4 = new System.Windows.Forms.TextBox();
-            this.gpb_tp4 = new System.Windows.Forms.GroupBox();
-            this.lbl_n_tp4 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.panel_tp4 = new System.Windows.Forms.Panel();
-            this.lbl_rdo_tp4 = new System.Windows.Forms.Label();
-            this.lbl_mensaje_tp4 = new System.Windows.Forms.Label();
+            this.btnCalcular = new System.Windows.Forms.Button();
+            this.lbl_coeficiente = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lbl_textoMC = new System.Windows.Forms.Label();
             this.Panel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabTan.SuspendLayout();
@@ -132,8 +134,9 @@
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvXeY)).BeginInit();
             this.tabPage8.SuspendLayout();
-            this.gpb_tp4.SuspendLayout();
             this.panel_tp4.SuspendLayout();
+            this.gpb_tp4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel
@@ -812,8 +815,9 @@
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.txt_valor_lagrange);
-            this.tabPage7.Controls.Add(this.lbl_valor_lagrange);
+            this.tabPage7.Controls.Add(this.panel3);
+            this.tabPage7.Controls.Add(this.lbl_coeficiente);
+            this.tabPage7.Controls.Add(this.btnCalcular);
             this.tabPage7.Controls.Add(this.label16);
             this.tabPage7.Controls.Add(this.txt_TP3_Tolerancia);
             this.tabPage7.Controls.Add(this.label17);
@@ -826,24 +830,6 @@
             this.tabPage7.TabIndex = 2;
             this.tabPage7.Text = "Unidad 3";
             this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // txt_valor_lagrange
-            // 
-            this.txt_valor_lagrange.Location = new System.Drawing.Point(269, 34);
-            this.txt_valor_lagrange.Name = "txt_valor_lagrange";
-            this.txt_valor_lagrange.Size = new System.Drawing.Size(100, 20);
-            this.txt_valor_lagrange.TabIndex = 76;
-            this.txt_valor_lagrange.Visible = false;
-            // 
-            // lbl_valor_lagrange
-            // 
-            this.lbl_valor_lagrange.AutoSize = true;
-            this.lbl_valor_lagrange.Location = new System.Drawing.Point(204, 37);
-            this.lbl_valor_lagrange.Name = "lbl_valor_lagrange";
-            this.lbl_valor_lagrange.Size = new System.Drawing.Size(59, 13);
-            this.lbl_valor_lagrange.TabIndex = 75;
-            this.lbl_valor_lagrange.Text = "Valor de X:";
-            this.lbl_valor_lagrange.Visible = false;
             // 
             // label16
             // 
@@ -876,6 +862,7 @@
             this.txt_Grado.Name = "txt_Grado";
             this.txt_Grado.Size = new System.Drawing.Size(100, 20);
             this.txt_Grado.TabIndex = 71;
+            this.txt_Grado.TextChanged += new System.EventHandler(this.txt_Grado_TextChanged);
             // 
             // dgvXeY
             // 
@@ -912,6 +899,57 @@
             this.tabPage8.Text = "Unidad 4";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
+            // panel_tp4
+            // 
+            this.panel_tp4.Controls.Add(this.lbl_rdo_tp4);
+            this.panel_tp4.Controls.Add(this.lbl_mensaje_tp4);
+            this.panel_tp4.Location = new System.Drawing.Point(77, 155);
+            this.panel_tp4.Name = "panel_tp4";
+            this.panel_tp4.Size = new System.Drawing.Size(603, 189);
+            this.panel_tp4.TabIndex = 29;
+            // 
+            // lbl_rdo_tp4
+            // 
+            this.lbl_rdo_tp4.AutoSize = true;
+            this.lbl_rdo_tp4.Location = new System.Drawing.Point(271, 42);
+            this.lbl_rdo_tp4.Name = "lbl_rdo_tp4";
+            this.lbl_rdo_tp4.Size = new System.Drawing.Size(41, 13);
+            this.lbl_rdo_tp4.TabIndex = 1;
+            this.lbl_rdo_tp4.Text = "label17";
+            this.lbl_rdo_tp4.Visible = false;
+            // 
+            // lbl_mensaje_tp4
+            // 
+            this.lbl_mensaje_tp4.AutoSize = true;
+            this.lbl_mensaje_tp4.Location = new System.Drawing.Point(51, 42);
+            this.lbl_mensaje_tp4.Name = "lbl_mensaje_tp4";
+            this.lbl_mensaje_tp4.Size = new System.Drawing.Size(41, 13);
+            this.lbl_mensaje_tp4.TabIndex = 0;
+            this.lbl_mensaje_tp4.Text = "label17";
+            this.lbl_mensaje_tp4.Visible = false;
+            // 
+            // gpb_tp4
+            // 
+            this.gpb_tp4.Controls.Add(this.btn_obtener_tp4);
+            this.gpb_tp4.Controls.Add(this.lbl_n_tp4);
+            this.gpb_tp4.Controls.Add(this.txt_n_tp4);
+            this.gpb_tp4.Controls.Add(this.label24);
+            this.gpb_tp4.Controls.Add(this.cmb_metodos_unidad4);
+            this.gpb_tp4.Controls.Add(this.txt_funcion_TP4);
+            this.gpb_tp4.Controls.Add(this.txt_b_tp4);
+            this.gpb_tp4.Controls.Add(this.txt_a_tp4);
+            this.gpb_tp4.Controls.Add(this.label26);
+            this.gpb_tp4.Controls.Add(this.label27);
+            this.gpb_tp4.Controls.Add(this.label28);
+            this.gpb_tp4.Location = new System.Drawing.Point(68, 25);
+            this.gpb_tp4.Margin = new System.Windows.Forms.Padding(2);
+            this.gpb_tp4.Name = "gpb_tp4";
+            this.gpb_tp4.Padding = new System.Windows.Forms.Padding(2);
+            this.gpb_tp4.Size = new System.Drawing.Size(491, 125);
+            this.gpb_tp4.TabIndex = 28;
+            this.gpb_tp4.TabStop = false;
+            this.gpb_tp4.Text = "Parámetros";
+            // 
             // btn_obtener_tp4
             // 
             this.btn_obtener_tp4.BackColor = System.Drawing.Color.PaleGreen;
@@ -924,6 +962,17 @@
             this.btn_obtener_tp4.UseVisualStyleBackColor = false;
             this.btn_obtener_tp4.Click += new System.EventHandler(this.btn_obtener_tp4_Click_1);
             // 
+            // lbl_n_tp4
+            // 
+            this.lbl_n_tp4.AutoSize = true;
+            this.lbl_n_tp4.Location = new System.Drawing.Point(59, 90);
+            this.lbl_n_tp4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_n_tp4.Name = "lbl_n_tp4";
+            this.lbl_n_tp4.Size = new System.Drawing.Size(22, 13);
+            this.lbl_n_tp4.TabIndex = 17;
+            this.lbl_n_tp4.Text = "n =";
+            this.lbl_n_tp4.Visible = false;
+            // 
             // txt_n_tp4
             // 
             this.txt_n_tp4.Location = new System.Drawing.Point(85, 87);
@@ -932,6 +981,16 @@
             this.txt_n_tp4.Size = new System.Drawing.Size(49, 20);
             this.txt_n_tp4.TabIndex = 16;
             this.txt_n_tp4.Visible = false;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(275, 24);
+            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(46, 13);
+            this.label24.TabIndex = 15;
+            this.label24.Text = "Método:";
             // 
             // cmb_metodos_unidad4
             // 
@@ -973,49 +1032,6 @@
             this.txt_a_tp4.Size = new System.Drawing.Size(49, 20);
             this.txt_a_tp4.TabIndex = 2;
             // 
-            // gpb_tp4
-            // 
-            this.gpb_tp4.Controls.Add(this.btn_obtener_tp4);
-            this.gpb_tp4.Controls.Add(this.lbl_n_tp4);
-            this.gpb_tp4.Controls.Add(this.txt_n_tp4);
-            this.gpb_tp4.Controls.Add(this.label24);
-            this.gpb_tp4.Controls.Add(this.cmb_metodos_unidad4);
-            this.gpb_tp4.Controls.Add(this.txt_funcion_TP4);
-            this.gpb_tp4.Controls.Add(this.txt_b_tp4);
-            this.gpb_tp4.Controls.Add(this.txt_a_tp4);
-            this.gpb_tp4.Controls.Add(this.label26);
-            this.gpb_tp4.Controls.Add(this.label27);
-            this.gpb_tp4.Controls.Add(this.label28);
-            this.gpb_tp4.Location = new System.Drawing.Point(68, 25);
-            this.gpb_tp4.Margin = new System.Windows.Forms.Padding(2);
-            this.gpb_tp4.Name = "gpb_tp4";
-            this.gpb_tp4.Padding = new System.Windows.Forms.Padding(2);
-            this.gpb_tp4.Size = new System.Drawing.Size(491, 125);
-            this.gpb_tp4.TabIndex = 28;
-            this.gpb_tp4.TabStop = false;
-            this.gpb_tp4.Text = "Parámetros";
-            // 
-            // lbl_n_tp4
-            // 
-            this.lbl_n_tp4.AutoSize = true;
-            this.lbl_n_tp4.Location = new System.Drawing.Point(59, 90);
-            this.lbl_n_tp4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_n_tp4.Name = "lbl_n_tp4";
-            this.lbl_n_tp4.Size = new System.Drawing.Size(22, 13);
-            this.lbl_n_tp4.TabIndex = 17;
-            this.lbl_n_tp4.Text = "n =";
-            this.lbl_n_tp4.Visible = false;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(275, 24);
-            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(46, 13);
-            this.label24.TabIndex = 15;
-            this.label24.Text = "Método:";
-            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -1046,34 +1062,46 @@
             this.label28.TabIndex = 11;
             this.label28.Text = "f (x) =";
             // 
-            // panel_tp4
+            // btnCalcular
             // 
-            this.panel_tp4.Controls.Add(this.lbl_rdo_tp4);
-            this.panel_tp4.Controls.Add(this.lbl_mensaje_tp4);
-            this.panel_tp4.Location = new System.Drawing.Point(77, 155);
-            this.panel_tp4.Name = "panel_tp4";
-            this.panel_tp4.Size = new System.Drawing.Size(603, 189);
-            this.panel_tp4.TabIndex = 29;
+            this.btnCalcular.BackColor = System.Drawing.Color.LightGreen;
+            this.btnCalcular.Font = new System.Drawing.Font("Montserrat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalcular.Location = new System.Drawing.Point(375, 34);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.Size = new System.Drawing.Size(135, 76);
+            this.btnCalcular.TabIndex = 77;
+            this.btnCalcular.Text = "Calcular";
+            this.btnCalcular.UseVisualStyleBackColor = false;
+            this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
             // 
-            // lbl_rdo_tp4
+            // lbl_coeficiente
             // 
-            this.lbl_rdo_tp4.AutoSize = true;
-            this.lbl_rdo_tp4.Location = new System.Drawing.Point(271, 42);
-            this.lbl_rdo_tp4.Name = "lbl_rdo_tp4";
-            this.lbl_rdo_tp4.Size = new System.Drawing.Size(41, 13);
-            this.lbl_rdo_tp4.TabIndex = 1;
-            this.lbl_rdo_tp4.Text = "label17";
-            this.lbl_rdo_tp4.Visible = false;
+            this.lbl_coeficiente.AutoSize = true;
+            this.lbl_coeficiente.Location = new System.Drawing.Point(42, 216);
+            this.lbl_coeficiente.Name = "lbl_coeficiente";
+            this.lbl_coeficiente.Size = new System.Drawing.Size(35, 13);
+            this.lbl_coeficiente.TabIndex = 78;
+            this.lbl_coeficiente.Text = "label6";
+            this.lbl_coeficiente.Visible = false;
             // 
-            // lbl_mensaje_tp4
+            // panel3
             // 
-            this.lbl_mensaje_tp4.AutoSize = true;
-            this.lbl_mensaje_tp4.Location = new System.Drawing.Point(51, 42);
-            this.lbl_mensaje_tp4.Name = "lbl_mensaje_tp4";
-            this.lbl_mensaje_tp4.Size = new System.Drawing.Size(41, 13);
-            this.lbl_mensaje_tp4.TabIndex = 0;
-            this.lbl_mensaje_tp4.Text = "label17";
-            this.lbl_mensaje_tp4.Visible = false;
+            this.panel3.Controls.Add(this.lbl_textoMC);
+            this.panel3.Location = new System.Drawing.Point(45, 259);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(649, 104);
+            this.panel3.TabIndex = 79;
+            // 
+            // lbl_textoMC
+            // 
+            this.lbl_textoMC.AutoSize = true;
+            this.lbl_textoMC.Location = new System.Drawing.Point(24, 20);
+            this.lbl_textoMC.Name = "lbl_textoMC";
+            this.lbl_textoMC.Size = new System.Drawing.Size(35, 13);
+            this.lbl_textoMC.TabIndex = 0;
+            this.lbl_textoMC.Text = "label5";
+            this.lbl_textoMC.Visible = false;
             // 
             // AnalisisNumerico
             // 
@@ -1109,10 +1137,12 @@
             this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvXeY)).EndInit();
             this.tabPage8.ResumeLayout(false);
-            this.gpb_tp4.ResumeLayout(false);
-            this.gpb_tp4.PerformLayout();
             this.panel_tp4.ResumeLayout(false);
             this.panel_tp4.PerformLayout();
+            this.gpb_tp4.ResumeLayout(false);
+            this.gpb_tp4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1185,8 +1215,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn X;
         private System.Windows.Forms.DataGridViewTextBoxColumn Y;
         private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.TextBox txt_valor_lagrange;
-        private System.Windows.Forms.Label lbl_valor_lagrange;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txt_TP3_Tolerancia;
         private System.Windows.Forms.Label label17;
@@ -1206,6 +1234,10 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lbl_textoMC;
+        private System.Windows.Forms.Label lbl_coeficiente;
+        private System.Windows.Forms.Button btnCalcular;
     }
 }
 

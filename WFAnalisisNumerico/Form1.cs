@@ -1,20 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Logica;
-using Logica.Unidad_1;
+﻿using Logica.Unidad_1;
 using Logica.Unidad_2;
-using Logica.Unidad_3;
 using Logica.Unidad_4;
-using Calculus;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
-namespace WFAnalisisNumerico 
+namespace WFAnalisisNumerico
 {
     public partial class AnalisisNumerico : Form
     {
@@ -25,7 +16,7 @@ namespace WFAnalisisNumerico
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private bool ChequearTextBoxs(object sender, EventArgs e)
@@ -99,19 +90,19 @@ namespace WFAnalisisNumerico
         // btn3: metodo de Newton-Raphson
         private void btn3_Obtener_Click(object sender, EventArgs e)
         {
-                Resultado res = Ejercicio1.Newton(txt_Funcion.Text, int.Parse(txt_Iter.Text),
-                        double.Parse(txt_Tole.Text), float.Parse(txt_LI.Text));
+            Resultado res = Ejercicio1.Newton(txt_Funcion.Text, int.Parse(txt_Iter.Text),
+                    double.Parse(txt_Tole.Text), float.Parse(txt_LI.Text));
 
-                 if (!res.Ok)
-                 {
-                     MessageBox.Show(res.Mensaje);
-                 }
-                 else
-                 {
-                     lbl_Ite_3.Text = res.Iteraciones.ToString();
-                     lbl_Tole_3.Text = res.Tolerancia.ToString();
-                     lbl_Solu_3.Text = res.Resolucion.ToString();
-                 }
+            if (!res.Ok)
+            {
+                MessageBox.Show(res.Mensaje);
+            }
+            else
+            {
+                lbl_Ite_3.Text = res.Iteraciones.ToString();
+                lbl_Tole_3.Text = res.Tolerancia.ToString();
+                lbl_Solu_3.Text = res.Resolucion.ToString();
+            }
             //}
         }
 
@@ -124,7 +115,7 @@ namespace WFAnalisisNumerico
             }
             else
             {
-                Resultado res = Ejercicio1.Secante(txt_Funcion.Text, int.Parse(txt_Iter.Text), 
+                Resultado res = Ejercicio1.Secante(txt_Funcion.Text, int.Parse(txt_Iter.Text),
                         double.Parse(txt_Tole.Text), float.Parse(txt_LI.Text), float.Parse(txt_LD.Text));
 
                 if (!res.Ok)
@@ -259,7 +250,7 @@ namespace WFAnalisisNumerico
                 panel2.Controls.Add(lbl);
                 panel2.Show();
             }
-        }   
+        }
 
         private void Btn_Resolver_Click(object sender, EventArgs e)
         {
@@ -270,7 +261,7 @@ namespace WFAnalisisNumerico
         {
             int dim = int.Parse(textBox1.Text);
             bool camposvacios = false;
-            for (int i=1; i<=dim + 1; i++)
+            for (int i = 1; i <= dim + 1; i++)
             {
                 for (int j = 1; j <= dim; j++)
                 {
@@ -501,7 +492,7 @@ namespace WFAnalisisNumerico
                 { vectorY[contador] = double.Parse(codigo); }
             }
 
-            grad = int.Parse(txt_Grado.Text); 
+            grad = int.Parse(txt_Grado.Text);
         }
 
         private void Txt_TP3_Tolerancia_KeyPress(object sender, KeyPressEventArgs e)

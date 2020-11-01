@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Logica.Unidad_3
 {
@@ -25,12 +23,12 @@ namespace Logica.Unidad_3
             double a1 = ((n * sum_xy) - sum_xy) / ((n * sum_xx) - (sum_xx * sum_xx));
             // Se encuentra X
             double a0 = (sum_y / n) - ((a1 * sum_x) / n);
-            for (int i = 0; i < n-1; i++)
-            {                 
+            for (int i = 0; i < n - 1; i++)
+            {
                 // Se calcula el coeficiente de la recta de mejor ajuste              
-                sr =+ Math.Pow((a1 * vector_x[i]) + a0 * vector_y[i], 2);
+                sr = +Math.Pow((a1 * vector_x[i]) + a0 * vector_y[i], 2);
                 // Se calcula rl coeficiente de la recta promedio 
-                st =+ Math.Pow(((sum_y / n) - vector_y[i] ), 2);
+                st = +Math.Pow(((sum_y / n) - vector_y[i]), 2);
             }
             double ajuste = Math.Sqrt((st - sr) / st) * 100;
             bool resultado_correcto;
@@ -39,7 +37,7 @@ namespace Logica.Unidad_3
             if (ajuste < tolerancia)
             {
                 resultado_correcto = false;
-                mensaje = $"El ajuste no es aceptable ya que es menor a {tolerancia}";                
+                mensaje = $"El ajuste no es aceptable ya que es menor a {tolerancia}";
             }
             // Si el ajuste es aceptable
             else

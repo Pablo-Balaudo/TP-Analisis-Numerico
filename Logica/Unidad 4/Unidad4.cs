@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Calculus;
+﻿using Calculus;
 
 namespace Logica.Unidad_4
 {
@@ -18,7 +15,7 @@ namespace Logica.Unidad_4
 
         private static Resultado_TP4 ChequearFuncion(string func)
         {
-            Resultado_TP4 result = new Resultado_TP4(true,"El area es: ");
+            Resultado_TP4 result = new Resultado_TP4(true, "El area es: ");
             Calculo AnalizadorDeFuncion = new Calculo();
             if (!AnalizadorDeFuncion.Sintaxis(func, 'x'))
             {
@@ -31,7 +28,7 @@ namespace Logica.Unidad_4
         public static Resultado_TP4 CalcularTrapecioSimple(string funcion, double a, double b)
         {
             Resultado_TP4 result = ChequearFuncion(funcion);
-            if (result.Ok)        
+            if (result.Ok)
             {
                 result.Resolucion = ((Fx(funcion, a) + Fx(funcion, b)) * (b - a)) / 2;
             }
@@ -47,7 +44,7 @@ namespace Logica.Unidad_4
             }
             double h = (b - a) / n;
             double Sum = 0;
-            for (int i = 1; i<=n - 1; i++)
+            for (int i = 1; i <= n - 1; i++)
             {
                 Sum += Fx(funcion, a + (i * h));
             }

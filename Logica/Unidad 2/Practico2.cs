@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Logica.Unidad_2
 {
@@ -55,13 +53,13 @@ namespace Logica.Unidad_2
             int iteraciones = 0;
             double[] s_anterior = new double[dim];
 
-            while(iteraciones < iter)
+            while (iteraciones < iter)
             {
-                for (int i = 0; i<dim; i++)
+                for (int i = 0; i < dim; i++)
                 {
                     s_anterior[i] = s_iterado[i];
                 }
-                
+
                 for (int i = 0; i < dim; i++) //se despejan las incognitas
                 {
                     double sumatoria = 0;
@@ -78,8 +76,8 @@ namespace Logica.Unidad_2
                         }
                     }
                     s_iterado[i] = (matriz[i, dim] - sumatoria) / valor_diagonal;
-                    
-                } 
+
+                }
                 iteraciones += 1;
                 int cont = 0;
 
@@ -91,8 +89,8 @@ namespace Logica.Unidad_2
                         cont += 1;
                     }
                 }
-                if (cont == dim)  
-                { 
+                if (cont == dim)
+                {
                     for (int x = 0; x < dim; x++)
                     {
                         result.Resoluciones[x] = s_iterado[x];

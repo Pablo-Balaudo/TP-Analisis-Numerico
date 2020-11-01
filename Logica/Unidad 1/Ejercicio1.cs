@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Calculus;
+﻿using Calculus;
+using System;
 namespace Logica.Unidad_1
 {
     public class Ejercicio1 : Entrada
-    {        
+    {
 
         public static Resultado Analizador(string funcion)
         {
@@ -30,9 +28,9 @@ namespace Logica.Unidad_1
         }
 
         static double CalcularError(double xr, double xant)
-        {            
-            return Math.Abs((xr - xant) / xr);            
-        }        
+        {
+            return Math.Abs((xr - xant) / xr);
+        }
 
         public static Resultado Biseccion(string funcion, double iteraciones, double tolerancia, double x_izquierda, double x_derecha)
         {
@@ -74,10 +72,10 @@ namespace Logica.Unidad_1
                 {
                     if (Math.Abs(Fx(funcion, x_resultado)) < tolerancia)
                         resultado.Tolerancia = Math.Abs(Fx(funcion, x_resultado));
-                        //resultado.Tolerancia = Convert.ToDecimal(Math.Abs(Fx(funcion, x_resultado)));
+                    //resultado.Tolerancia = Convert.ToDecimal(Math.Abs(Fx(funcion, x_resultado)));
                     else
                         resultado.Tolerancia = error;
-                        //resultado.Tolerancia = Convert.ToDecimal(error);
+                    //resultado.Tolerancia = Convert.ToDecimal(error);
                     return new Resultado(intentos, resultado.Tolerancia, x_resultado, true, "");
                 }
                 else
@@ -106,7 +104,7 @@ namespace Logica.Unidad_1
             int intentos = 0;
             double x_ant = 0;
             double operacion = Fx(funcion, x_izquierda) * Fx(funcion, x_derecha);
-            
+
             if (operacion == 0)
             {
                 if (Fx(funcion, x_izquierda) == 0)
@@ -125,7 +123,7 @@ namespace Logica.Unidad_1
                     return resultado;
                 }
             }
-            
+
             while (true)
             {
                 intentos++;
@@ -167,7 +165,7 @@ namespace Logica.Unidad_1
             double error = 1;
             if (operacion == 0)
             {
-                resultado.Resolucion = x_inicial;         
+                resultado.Resolucion = x_inicial;
                 return resultado;
             }
             else
@@ -191,7 +189,7 @@ namespace Logica.Unidad_1
                             resultado.Tolerancia = Math.Abs(Fx(funcion, x_resultado));
                         else
                             resultado.Tolerancia = error;
-                        return resultado;                    
+                        return resultado;
                     }
                     else
                     {
@@ -280,6 +278,6 @@ namespace Logica.Unidad_1
             return result;
         }
 
-     
+
     }
 }

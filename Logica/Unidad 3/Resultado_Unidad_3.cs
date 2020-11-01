@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Logica.Unidad_3
+﻿namespace Logica.Unidad_3
 {
     public class Resultado_Regresion_Lineal
     {

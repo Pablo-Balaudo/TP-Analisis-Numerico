@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Logica.Unidad_1
+﻿namespace Logica.Unidad_1
 {
     public class Resultado
     {

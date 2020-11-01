@@ -52,9 +52,6 @@ namespace Logica.Unidad_2
                 s_iterado[x] = 0;
             }
 
-            double sumatoria = 0;
-            double valor_diagonal = 0;
-            bool b = false;
             int iteraciones = 0;
             double[] s_anterior = new double[dim];
 
@@ -67,8 +64,8 @@ namespace Logica.Unidad_2
                 
                 for (int i = 0; i < dim; i++) //se despejan las incognitas
                 {
-                    sumatoria = 0;
-                    valor_diagonal = 0;
+                    double sumatoria = 0;
+                    double valor_diagonal = 0;
                     for (int j = 0; j < dim; j++)
                     {
                         if (j == i) //si esta en la diagonal, guardamos el valor para despues usarlo para dividir

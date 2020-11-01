@@ -74,8 +74,7 @@ namespace Logica.Unidad_4
                 double h = (b - a) / n;
                 double fx0 = Fx(funcion, a);
                 double fxn = Fx(funcion, b);
-                double sum_fximpares = 0; double sum_fxpares = 0; double xi = 0;
-
+                double sum_fximpares = 0; double sum_fxpares = 0; double xi;
                 for (int i = 1; i <= n - 1; i += 2) //Se suman los impares
                 {
                     xi = a + (i * h);

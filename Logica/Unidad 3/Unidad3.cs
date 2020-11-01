@@ -6,6 +6,11 @@ namespace Logica.Unidad_3
 {
     public class Unidad3
     {
+        public void RegresionLineal()
+        {
+
+        }
+
         public static double[,] RegresionPolinomial(double[] vector_x, double[] vector_y, int n, int grado)
         {
             double sum_x = 0, sum_y = 0;

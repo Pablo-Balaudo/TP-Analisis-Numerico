@@ -246,10 +246,12 @@ namespace WFAnalisisNumerico
             }
             if (result.Iteraciones != 0)
             {
-                Label lbl = new Label();
-                lbl.Name = "lbl_Iteraciones";
-                lbl.AutoSize = false;
-                lbl.Size = new Size(200, 17);
+                Label lbl = new Label
+                {
+                    Name = "lbl_Iteraciones",
+                    AutoSize = false,
+                    Size = new Size(200, 17)
+                };
                 lbl.Font = new Font(lbl.Font.Name, 10);
                 lbl.Location = new Point(25, 250);
                 lbl.Text = "Cantidad de Iteraciones: " + result.Iteraciones;
@@ -333,6 +335,7 @@ namespace WFAnalisisNumerico
         {
 
         }
+
 
         private void cmb_metodos_tp4_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -458,8 +461,6 @@ namespace WFAnalisisNumerico
                 MostrarResultadoTP4(nuevo);
             }
         }
-
-        const int max_grado = 5;
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {

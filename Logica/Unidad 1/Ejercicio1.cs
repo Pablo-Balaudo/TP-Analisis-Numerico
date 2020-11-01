@@ -175,7 +175,7 @@ namespace Logica.Unidad_1
                 while ((Math.Abs(Fx(funcion, x_resultado)) >= tolerancia || Math.Abs(Fx(funcion, x_resultado)) == 0) && intentos < iteraciones && error > tolerancia)
                 {
                     intentos++;
-                    x_resultado = x_resultado - (Fx(funcion, x_resultado) / ((Fx(funcion, x_resultado + tolerancia) - Fx(funcion, x_resultado)) / tolerancia));
+                    x_resultado -= (Fx(funcion, x_resultado) / ((Fx(funcion, x_resultado + tolerancia) - Fx(funcion, x_resultado)) / tolerancia));
                     error = (x_resultado == 0) ? 1 : CalcularError(x_resultado, x_ant);
                     if (double.IsInfinity(x_resultado) || double.IsNaN(x_resultado) || double.IsNaN(Fx(funcion, x_resultado)) || double.IsInfinity(Fx(funcion, x_resultado)))
                     {
@@ -226,7 +226,6 @@ namespace Logica.Unidad_1
             }
             int intentos = 0;
             double x_ant = 0;
-            double error = 1;
             double x_resultado = ((Fx(funcion, x_izquierda) * x_derecha - Fx(funcion, x_derecha) * x_izquierda) / (-Fx(funcion, x_derecha) + Fx(funcion, x_izquierda)));
             if (double.IsInfinity(x_resultado) || double.IsNaN(x_resultado) || double.IsNaN(Fx(funcion, x_resultado)) || double.IsInfinity(Fx(funcion, x_resultado)))
             {
@@ -246,6 +245,7 @@ namespace Logica.Unidad_1
                 }
                 else
                 {
+                    double error;
                     if ((x_izquierda + x_derecha) == 0)
                     {
                         error = 1;

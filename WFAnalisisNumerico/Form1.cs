@@ -398,6 +398,7 @@ namespace WFAnalisisNumerico
             panel_tp4.Show();
         }
 
+        const int max_grado = 5; //para chequear que no sea mayor a 5
         private void btn_obtener_tp4_Click_1(object sender, EventArgs e)
         {
             if (txt_funcion_TP4.Text.Trim() == string.Empty || txt_a_tp4.Text.Trim() == string.Empty || txt_b_tp4.Text.Trim() == string.Empty || ((cmb_metodos_unidad4.Text == "Trapecio Múltiple" || cmb_metodos_unidad4.Text == "Simpson 1/3 Múltiple") && txt_n_tp4.Text.Trim() == string.Empty))
@@ -453,6 +454,36 @@ namespace WFAnalisisNumerico
             }
         }
 
+        public void MostrarResultadosMinimosCuadrados(Resultado_TP2 rdos)
+        {
+            string[] v = new string[6] { "a0 = ", "a1 = ", "a2 = ", "a3 = ", "a4 = ", "a5 = " };
+            lbl_textoMC.Visible = true;
+            lbl_textoMC.Text = rdos.Mensaje;
+            lbl_textoMC.Font = new Font(lbl_textoMC.Font.Name, 10);
+            panel3.Controls.Add(lbl_textoMC);
+            int pointX = 25;
+            int pointY = 55;
+            if (rdos.Ok != false)
+            {
+                for (int i = 0; i < rdos.Resoluciones.Length; i++)
+                {
+                    Label lbl = new Label();
+                    lbl.Name = "lbl_Resultado_" + i;
+                    lbl.AutoSize = false;
+                    lbl.Size = new System.Drawing.Size(85, 17);
+                    lbl.Font = new Font(lbl.Font.Name, 8);
+                    lbl.Location = new Point(pointX, pointY);
+                    lbl.Text = v[i] + Math.Round(rdos.Resoluciones[i], 5);
+                    lbl.ForeColor = Color.Red;
+                    panel3.Controls.Add(lbl);
+                    panel3.Show();
+                    pointX += 100;
+                }
+                lbl_coeficiente.Text = "Coeficiente de correlación = " + rdos.Coeficiente;
+                lbl_coeficiente.Visible = true;
+            }
+        }
+
         private void btnCalcular_Click(object sender, EventArgs e)
         {
             for (int i = panel3.Controls.Count - 1; i >= 0; i--)
@@ -481,7 +512,6 @@ namespace WFAnalisisNumerico
                 { vectorX[contador] = double.Parse(codigo); }
             }
             int grad = contador - 1;
-
             //Vector de valores y
             contador = -1;
             foreach (DataGridViewRow row in dgvXeY.Rows)
@@ -493,6 +523,26 @@ namespace WFAnalisisNumerico
             }
 
             grad = int.Parse(txt_Grado.Text);
+            Resultado_TP2 res = new Resultado_TP2(true, "Ajuste no aceptable para polinomios de grado mayor a " + (max_grado), 0, 50);
+            if (grad == 0)
+            {
+                res = Logica.Unidad_3.Unidad3.RegresionLineal(vectorX, vectorY, contador, grad + 1, max_grado);
+                res.Mensaje = "Los valores son:";
+            }
+            else
+            {
+                while (grad < max_grado + 1 & (res.Coeficiente < double.Parse(txt_TP3_Tolerancia.Text)) & res.Ok == true)
+                {
+                    res = Logica.Unidad_3.Unidad3.RegresionLineal(vectorX, vectorY, contador, grad + 1, max_grado);  //(vectorX, vectorY, contador, grad + 1, max_grado);
+                    if (res.Coeficiente >= double.Parse(txt_TP3_Tolerancia.Text))
+                    { res.Mensaje = "Los valores son:"; }
+                    else { grad += 1; }
+                }
+                if (grad == max_grado + 1)
+                { res.Ok = false; }
+            }
+
+            MostrarResultadosMinimosCuadrados(res);
         }
 
         private void Txt_TP3_Tolerancia_KeyPress(object sender, KeyPressEventArgs e)

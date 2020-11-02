@@ -5,123 +5,56 @@ namespace Logica.Unidad_3
 {
     public class Unidad3
     {
-        public static Resultado_Regresion_Lineal RegresionLineal
-            (double[] vector_x,
-            double[] vector_y,
-            double tolerancia)
+        public static double[,] RegresionPolinomial(double[] VectorX, double[] VectorY, int n, int Grado)
         {
-            int cantidad_de_pares_ordenados = vector_x.Length;
-            double sum_x = 0,
-                sum_y = 0,
-                st = 0,
-                sr = 0;
-            for (int i = 0; i < cantidad_de_pares_ordenados; i++)
+            double sum_x = 0, sum_y = 0;
+            double[,] Matriz = new double[Grado, Grado + 1];
+            for (int i = 0; i < n; i++)
             {
-                // Se obtienen las sumatorias de todos los componentes por columna
-                sum_x += vector_x[i];
-                sum_y += vector_y[i];
+                sum_x += VectorX[i];
+                sum_y += VectorY[i];
+                for (int j = 0; j < Grado; j++)
+                {
+                    for (int k = 0; k < Grado; k++)
+                    {
+                        Matriz[j, k] += Math.Pow(VectorX[i], (k + j));
+                    }
+                    Matriz[j, Grado] += VectorY[i] * (Math.Pow(VectorX[i], j));
+                }
             }
-            double sum_xy = sum_x * sum_y,
-                sum_xx = sum_x * sum_x;
-            // Se encuentra Y
-            double a1 = ((cantidad_de_pares_ordenados * sum_xy) - sum_xy) / ((cantidad_de_pares_ordenados * sum_xx) - (sum_xx * sum_xx)),
-                // Se encuentra X
-                a0 = (sum_y / cantidad_de_pares_ordenados) - ((a1 * sum_x) / cantidad_de_pares_ordenados);
-            for (int i = 0; i < cantidad_de_pares_ordenados - 1; i++)
-            {
-                // Se calcula el coeficiente de la recta de mejor ajuste              
-                sr = +Math.Pow((a1 * vector_x[i]) + a0 * vector_y[i], 2);
-                // Se calcula el coeficiente de la recta promedio 
-                st = +Math.Pow(((sum_y / cantidad_de_pares_ordenados) - vector_y[i]), 2);
-            }
-            double ajuste = Math.Sqrt((st - sr) / st) * 100;
-            bool resultado_correcto;
-            string mensaje;
-            // Si el ajuste no es aceptable
-            if (ajuste < tolerancia)
-            {
-                resultado_correcto = false;
-                mensaje = $"El ajuste no es aceptable ya que es menor a {tolerancia}";
-            }
-            // Si el ajuste es aceptable
-            else
-            {
-                resultado_correcto = true;
-                mensaje = $"El ajuste es aceptable ya que es mayor o igual a {tolerancia}";
-            }
-            return new Resultado_Regresion_Lineal(resultado_correcto, mensaje, ajuste, a0, a1);
+            return Matriz;
         }
+        public static Resultado_TP2 RegresionLineal(double[] vector_x, double[] vector_y, int n, int Grado, int max_grado)
+        {
+            //Obtengo el sistema de ecuaciones
+            double[,] auxiliar = Logica.Unidad_3.Unidad3.RegresionPolinomial(vector_x, vector_y, n, Grado);
 
-        public static Regresion_Polinomial RegresionPolinomial
-            (double[] vector_x,
-            double[] vector_y,
-            int grado,
-            double tolerancia)
-        {
-            int cantidad_de_pares_ordenados = vector_x.Length;
-            double sum_x = 0,
-                sum_y = 0,
-                ajuste = 0;
-            double[,] matriz = new double[grado, grado + 1];
-            // Se calculan las sumatorias
-            for (int i = 0; i < cantidad_de_pares_ordenados; i++)
+            //Obtengo los valores del sistema de ecuaciones
+            Logica.Unidad_2.Resultado_TP2 res = Practico2.GaussJordan(auxiliar, Grado);
+            if (res.Ok != false)
             {
-                sum_x += vector_x[i];
-                sum_y += vector_y[i];
-                // Se carga la matriz
-                for (int j = 0; j < grado; j++)
+                //Calcular sr y st para poder calcular el coeficiente de correlación
+                double sum_y = 0, sr = 0, st = 0, sr_temp;
+                for (int i = 0; i < n; i++)
+                { sum_y += vector_y[i]; }
+                for (int i = 0; i < n; i++)
                 {
-                    for (int k = 0; k < grado; k++)
+                    sr_temp = vector_y[i] - res.Resoluciones[0];
+                    for (int j = max_grado; j > 0; j--)
                     {
-                        matriz[j, k] += Math.Pow(vector_x[i], (k + j));
+                        sr_temp -= Grado - 1 >= j ? Math.Pow(vector_x[i], j) * res.Resoluciones[j] : 0;
                     }
-                    matriz[j, grado] += vector_y[i] * (Math.Pow(vector_x[i], j));
+                    sr += Math.Pow(sr_temp, 2);
+                    st += Math.Pow(vector_y[i] - (sum_y / n), 2);
                 }
-            }
-            // Se resuelve el sistema de ecuaciones
-            Resultado_TP2 sistema_de_ecuaciones = Practico2.GaussJordan(matriz, grado + 1);
-            bool resultado_correcto = false;
-            string mensaje = "";
-            if (sistema_de_ecuaciones.Ok == true)
-            {
-                double sr = 0,
-                    st = 0,
-                    aux;
-                for (int i = 0; i < cantidad_de_pares_ordenados; i++)
-                {
-                    // Se calcula sr y st
-                    aux = vector_y[i] - sistema_de_ecuaciones.Resoluciones[0];
-                    for (int j = grado; j > 0; j++)
-                    {
-                        aux -=
-                            grado - 1 >= j ?
-                            Math.Pow(vector_x[i], j) * sistema_de_ecuaciones.Resoluciones[j] : 0;
-                    }
-                    sr += Math.Pow(aux, 2);
-                    st += Math.Pow(vector_y[i] - (sum_y / cantidad_de_pares_ordenados), 2);
-                    // Se calcula el coeficiente
-                    ajuste = ((st - sr) / st) * 100;
-                    // Si el ajuste no es aceptable
-                    if (ajuste < tolerancia)
-                    {
-                        resultado_correcto = false;
-                        mensaje = $"El ajuste no es aceptable ya que es menor a {tolerancia}";
-                    }
-                    // Si el ajuste es aceptable
-                    else
-                    {
-                        resultado_correcto = true;
-                        mensaje = $"El ajuste es aceptable ya que es mayor o igual a {tolerancia}";
-                    }
-                }
+
+                //Evaluar coeficiente de correlación
+                res.Coeficiente = ((st - sr) / st) * 100;
             }
             else
-            {
-                ajuste = 0;
-                mensaje = $"El sistema de ecuaciones fallo. Razon: {sistema_de_ecuaciones.Mensaje}";
-                resultado_correcto = false;
-            }
-            return new Regresion_Polinomial(resultado_correcto, mensaje, ajuste, sistema_de_ecuaciones);
+            { res.Coeficiente = -1; }
+            return res;
         }
+        
     }
 }

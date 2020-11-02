@@ -117,6 +117,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.Panel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabTan.SuspendLayout();
@@ -815,6 +816,7 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.label25);
             this.tabPage7.Controls.Add(this.panel3);
             this.tabPage7.Controls.Add(this.lbl_coeficiente);
             this.tabPage7.Controls.Add(this.btnCalcular);
@@ -864,9 +866,9 @@
             // 
             this.btnCalcular.BackColor = System.Drawing.Color.LightGreen;
             this.btnCalcular.Font = new System.Drawing.Font("Montserrat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalcular.Location = new System.Drawing.Point(385, 34);
+            this.btnCalcular.Location = new System.Drawing.Point(468, 149);
             this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(120, 37);
+            this.btnCalcular.Size = new System.Drawing.Size(143, 44);
             this.btnCalcular.TabIndex = 77;
             this.btnCalcular.Text = "Calcular";
             this.btnCalcular.UseVisualStyleBackColor = false;
@@ -875,15 +877,15 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(203, 49);
+            this.label16.Location = new System.Drawing.Point(88, 57);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(60, 13);
+            this.label16.Size = new System.Drawing.Size(107, 13);
             this.label16.TabIndex = 74;
-            this.label16.Text = "Tolerancia:";
+            this.label16.Text = "Coeficiente esperado";
             // 
             // txt_TP3_Tolerancia
             // 
-            this.txt_TP3_Tolerancia.Location = new System.Drawing.Point(269, 49);
+            this.txt_TP3_Tolerancia.Location = new System.Drawing.Point(201, 54);
             this.txt_TP3_Tolerancia.Name = "txt_TP3_Tolerancia";
             this.txt_TP3_Tolerancia.Size = new System.Drawing.Size(100, 20);
             this.txt_TP3_Tolerancia.TabIndex = 73;
@@ -891,7 +893,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(198, 23);
+            this.label17.Location = new System.Drawing.Point(130, 35);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(65, 13);
             this.label17.TabIndex = 72;
@@ -899,7 +901,7 @@
             // 
             // txt_Grado
             // 
-            this.txt_Grado.Location = new System.Drawing.Point(269, 23);
+            this.txt_Grado.Location = new System.Drawing.Point(201, 32);
             this.txt_Grado.Name = "txt_Grado";
             this.txt_Grado.Size = new System.Drawing.Size(100, 20);
             this.txt_Grado.TabIndex = 71;
@@ -911,9 +913,9 @@
             this.dgvXeY.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.X,
             this.Y});
-            this.dgvXeY.Location = new System.Drawing.Point(45, 23);
+            this.dgvXeY.Location = new System.Drawing.Point(319, 32);
             this.dgvXeY.Name = "dgvXeY";
-            this.dgvXeY.Size = new System.Drawing.Size(143, 186);
+            this.dgvXeY.Size = new System.Drawing.Size(143, 161);
             this.dgvXeY.TabIndex = 1;
             // 
             // X
@@ -1103,6 +1105,16 @@
             this.label28.TabIndex = 11;
             this.label28.Text = "f (x) =";
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(315, 6);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(148, 23);
+            this.label25.TabIndex = 80;
+            this.label25.Text = "Ingresar Pares";
+            // 
             // AnalisisNumerico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1238,6 +1250,7 @@
         private System.Windows.Forms.Label lbl_textoMC;
         private System.Windows.Forms.Label lbl_coeficiente;
         private System.Windows.Forms.Button btnCalcular;
+        private System.Windows.Forms.Label label25;
     }
 }
 

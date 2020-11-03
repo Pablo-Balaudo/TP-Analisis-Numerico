@@ -988,7 +988,7 @@
             this.gpb_tp4.Margin = new System.Windows.Forms.Padding(2);
             this.gpb_tp4.Name = "gpb_tp4";
             this.gpb_tp4.Padding = new System.Windows.Forms.Padding(2);
-            this.gpb_tp4.Size = new System.Drawing.Size(491, 125);
+            this.gpb_tp4.Size = new System.Drawing.Size(542, 125);
             this.gpb_tp4.TabIndex = 28;
             this.gpb_tp4.TabStop = false;
             this.gpb_tp4.Text = "Parámetros";
@@ -997,7 +997,7 @@
             // 
             this.btn_obtener_tp4.BackColor = System.Drawing.Color.PaleGreen;
             this.btn_obtener_tp4.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_obtener_tp4.Location = new System.Drawing.Point(367, 54);
+            this.btn_obtener_tp4.Location = new System.Drawing.Point(426, 48);
             this.btn_obtener_tp4.Name = "btn_obtener_tp4";
             this.btn_obtener_tp4.Size = new System.Drawing.Size(98, 36);
             this.btn_obtener_tp4.TabIndex = 18;
@@ -1031,9 +1031,9 @@
             this.label24.Location = new System.Drawing.Point(275, 24);
             this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(46, 13);
+            this.label24.Size = new System.Drawing.Size(105, 13);
             this.label24.TabIndex = 15;
-            this.label24.Text = "Método:";
+            this.label24.Text = "Seleccionar Método:";
             // 
             // cmb_metodos_unidad4
             // 
@@ -1044,7 +1044,7 @@
             "Simpson 1/3 Simple",
             "Simpson 1/3 Múltiple",
             "Simpson 3/8 Simple"});
-            this.cmb_metodos_unidad4.Location = new System.Drawing.Point(326, 21);
+            this.cmb_metodos_unidad4.Location = new System.Drawing.Point(385, 21);
             this.cmb_metodos_unidad4.Name = "cmb_metodos_unidad4";
             this.cmb_metodos_unidad4.Size = new System.Drawing.Size(139, 21);
             this.cmb_metodos_unidad4.TabIndex = 14;

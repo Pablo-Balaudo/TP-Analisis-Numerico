@@ -526,14 +526,14 @@ namespace WFAnalisisNumerico
             Resultado_TP2 res = new Resultado_TP2(true, "Ajuste no aceptable para polinomios de grado mayor a " + (max_grado), 0, 50);
             if (grad == 0)
             {
-                res = Logica.Unidad_3.Unidad3.RegresionLineal(vectorX, vectorY, contador, grad + 1, max_grado);
+                res = Logica.Unidad_3.Unidad3.RegresionPorMC(vectorX, vectorY, contador, grad + 1, max_grado);
                 res.Mensaje = "Los valores son:";
             }
             else
             {
                 while (grad < max_grado + 1 & (res.Coeficiente < double.Parse(txt_TP3_Tolerancia.Text)) & res.Ok == true)
                 {
-                    res = Logica.Unidad_3.Unidad3.RegresionLineal(vectorX, vectorY, contador, grad + 1, max_grado);  //(vectorX, vectorY, contador, grad + 1, max_grado);
+                    res = Logica.Unidad_3.Unidad3.RegresionPorMC(vectorX, vectorY, contador, grad + 1, max_grado);  //(vectorX, vectorY, contador, grad + 1, max_grado);
                     if (res.Coeficiente >= double.Parse(txt_TP3_Tolerancia.Text))
                     { res.Mensaje = "Los valores son:"; }
                     else { grad += 1; }

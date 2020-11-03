@@ -2,6 +2,11 @@
 {
     public class Resultado_TP2
     {
+        public Resultado_TP2()
+        {
+            Resoluciones = new double[2];
+        }
+
         public Resultado_TP2(bool b, string s, int inc, int iter)
         {
             Ok = b;

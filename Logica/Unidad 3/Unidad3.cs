@@ -1,5 +1,6 @@
 ﻿using Logica.Unidad_2;
 using System;
+using System.Linq;
 
 namespace Logica.Unidad_3
 {
@@ -31,10 +32,11 @@ namespace Logica.Unidad_3
             Resultado_TP2 res = Practico2.GaussJordan(auxiliar, Grado);
             if (res.Ok != false)
             {
-
+                Resultado_TP2 resu = new Resultado_TP2();
+                resu.Ok = true;
                 //Calcular sr y st para poder calcular el coeficiente de correlación
                 double sum_y = 0, sr = 0, st = 0, sr_temp;
-                for (int i = 0; i < n; i++)
+                for (int i = 0; i < n + 1; i++)
                 { 
                     sum_y += vector_y[i]; 
                 }
@@ -44,19 +46,24 @@ namespace Logica.Unidad_3
                     double sum_xx = 0;
                     double sum_x = 0;
                     double sum_xy = 0;
-                    for (int i = 0; i < n; i++)
+                    for (int i = 0; i < n + 1; i++)
                     {
                         sum_xx += Math.Pow(vector_x[i],2);
                         sum_x += vector_x[i];
                         sum_xy += vector_x[i] * vector_y[i];
                     }
-
+                    double media_x = sum_x / n;
                     double a1 = (n * sum_xy - sum_x * sum_y) / (n * sum_xx - Math.Pow(sum_x, 2));
-                    double a0 = (sum_y/n)-(a1*(sum_x/n));
-                    for (int i = 0; i < n - 1; i++)
+                    resu.Resoluciones[0] = a1;
+                    
+                    double a0 = media_y - (a1 * media_x);
+                    resu.Resoluciones[1] = a0;
+                    sr = 0;
+                    st = 0;
+                    for (int i = 0; i < n; i++)
                     {
                         // Se calcula el coeficiente de la recta de mejor ajuste      
-                        sr += Math.Pow((a1 * vector_x[i] + a0 - vector_y[i]), 2);
+                        sr += Math.Pow(((a1 * vector_x[i]) + a0 - vector_y[i]), 2);
                         // Se calcula rl coeficiente de la recta promedio 
                         st += Math.Pow((media_y - vector_y[i]), 2);
                     }
@@ -75,8 +82,19 @@ namespace Logica.Unidad_3
                         st += Math.Pow(vector_y[i] - (sum_y / n), 2);
                     }
                 }
+
                 //Evaluar coeficiente de correlación
-                res.Coeficiente = ((st - sr) / st) * 100;
+                if (Grado == 2)
+                {
+                    resu.Coeficiente = Math.Sqrt(((st - sr) / st)) * 100;
+                    return resu;
+                }
+                else
+                {
+                    res.Coeficiente = Math.Sqrt(((st - sr) / st)) * 100;
+                    return res;
+                }
+                
             }
             else
             { res.Coeficiente = -1; }

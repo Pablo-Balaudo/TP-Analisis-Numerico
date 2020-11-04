@@ -67,6 +67,8 @@ namespace Logica.Unidad_3
                         // Se calcula rl coeficiente de la recta promedio 
                         st += Math.Pow((media_y - vector_y[i]), 2);
                     }
+                    resu.Resoluciones[0] = a0;
+                    resu.Resoluciones[1] = a1;
                 }
                 else 
                 {

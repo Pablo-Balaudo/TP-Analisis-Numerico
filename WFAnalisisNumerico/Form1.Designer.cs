@@ -90,6 +90,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.label25 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbl_textoMC = new System.Windows.Forms.Label();
             this.lbl_coeficiente = new System.Windows.Forms.Label();
@@ -117,7 +118,6 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
             this.Panel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabTan.SuspendLayout();
@@ -833,6 +833,16 @@
             this.tabPage7.Text = "Unidad 3";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(315, 6);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(148, 23);
+            this.label25.TabIndex = 80;
+            this.label25.Text = "Ingresar Pares";
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.lbl_textoMC);
@@ -933,6 +943,7 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.BackColor = System.Drawing.Color.Gainsboro;
             this.tabPage8.Controls.Add(this.panel_tp4);
             this.tabPage8.Controls.Add(this.gpb_tp4);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
@@ -940,7 +951,6 @@
             this.tabPage8.Size = new System.Drawing.Size(768, 400);
             this.tabPage8.TabIndex = 3;
             this.tabPage8.Text = "Unidad 4";
-            this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // panel_tp4
             // 
@@ -954,7 +964,8 @@
             // lbl_rdo_tp4
             // 
             this.lbl_rdo_tp4.AutoSize = true;
-            this.lbl_rdo_tp4.Location = new System.Drawing.Point(271, 42);
+            this.lbl_rdo_tp4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_rdo_tp4.Location = new System.Drawing.Point(51, 76);
             this.lbl_rdo_tp4.Name = "lbl_rdo_tp4";
             this.lbl_rdo_tp4.Size = new System.Drawing.Size(41, 13);
             this.lbl_rdo_tp4.TabIndex = 1;
@@ -964,6 +975,7 @@
             // lbl_mensaje_tp4
             // 
             this.lbl_mensaje_tp4.AutoSize = true;
+            this.lbl_mensaje_tp4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_mensaje_tp4.Location = new System.Drawing.Point(51, 42);
             this.lbl_mensaje_tp4.Name = "lbl_mensaje_tp4";
             this.lbl_mensaje_tp4.Size = new System.Drawing.Size(41, 13);
@@ -975,9 +987,9 @@
             // 
             this.gpb_tp4.Controls.Add(this.btn_obtener_tp4);
             this.gpb_tp4.Controls.Add(this.lbl_n_tp4);
+            this.gpb_tp4.Controls.Add(this.cmb_metodos_unidad4);
             this.gpb_tp4.Controls.Add(this.txt_n_tp4);
             this.gpb_tp4.Controls.Add(this.label24);
-            this.gpb_tp4.Controls.Add(this.cmb_metodos_unidad4);
             this.gpb_tp4.Controls.Add(this.txt_funcion_TP4);
             this.gpb_tp4.Controls.Add(this.txt_b_tp4);
             this.gpb_tp4.Controls.Add(this.txt_a_tp4);
@@ -988,7 +1000,7 @@
             this.gpb_tp4.Margin = new System.Windows.Forms.Padding(2);
             this.gpb_tp4.Name = "gpb_tp4";
             this.gpb_tp4.Padding = new System.Windows.Forms.Padding(2);
-            this.gpb_tp4.Size = new System.Drawing.Size(542, 125);
+            this.gpb_tp4.Size = new System.Drawing.Size(590, 125);
             this.gpb_tp4.TabIndex = 28;
             this.gpb_tp4.TabStop = false;
             this.gpb_tp4.Text = "Parámetros";
@@ -997,7 +1009,7 @@
             // 
             this.btn_obtener_tp4.BackColor = System.Drawing.Color.PaleGreen;
             this.btn_obtener_tp4.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_obtener_tp4.Location = new System.Drawing.Point(426, 48);
+            this.btn_obtener_tp4.Location = new System.Drawing.Point(487, 51);
             this.btn_obtener_tp4.Name = "btn_obtener_tp4";
             this.btn_obtener_tp4.Size = new System.Drawing.Size(98, 36);
             this.btn_obtener_tp4.TabIndex = 18;
@@ -1008,10 +1020,11 @@
             // lbl_n_tp4
             // 
             this.lbl_n_tp4.AutoSize = true;
+            this.lbl_n_tp4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_n_tp4.Location = new System.Drawing.Point(59, 90);
             this.lbl_n_tp4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_n_tp4.Name = "lbl_n_tp4";
-            this.lbl_n_tp4.Size = new System.Drawing.Size(22, 13);
+            this.lbl_n_tp4.Size = new System.Drawing.Size(24, 13);
             this.lbl_n_tp4.TabIndex = 17;
             this.lbl_n_tp4.Text = "n =";
             this.lbl_n_tp4.Visible = false;
@@ -1028,15 +1041,18 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(275, 24);
+            this.label24.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(337, 27);
             this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(105, 13);
+            this.label24.Size = new System.Drawing.Size(104, 13);
             this.label24.TabIndex = 15;
             this.label24.Text = "Seleccionar Método:";
             // 
             // cmb_metodos_unidad4
             // 
+            this.cmb_metodos_unidad4.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.cmb_metodos_unidad4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_metodos_unidad4.FormattingEnabled = true;
             this.cmb_metodos_unidad4.Items.AddRange(new object[] {
             "Trapecio Simple",
@@ -1044,7 +1060,7 @@
             "Simpson 1/3 Simple",
             "Simpson 1/3 Múltiple",
             "Simpson 3/8 Simple"});
-            this.cmb_metodos_unidad4.Location = new System.Drawing.Point(385, 21);
+            this.cmb_metodos_unidad4.Location = new System.Drawing.Point(446, 24);
             this.cmb_metodos_unidad4.Name = "cmb_metodos_unidad4";
             this.cmb_metodos_unidad4.Size = new System.Drawing.Size(139, 21);
             this.cmb_metodos_unidad4.TabIndex = 14;
@@ -1056,7 +1072,7 @@
             this.txt_funcion_TP4.Location = new System.Drawing.Point(85, 21);
             this.txt_funcion_TP4.Margin = new System.Windows.Forms.Padding(2);
             this.txt_funcion_TP4.Name = "txt_funcion_TP4";
-            this.txt_funcion_TP4.Size = new System.Drawing.Size(144, 20);
+            this.txt_funcion_TP4.Size = new System.Drawing.Size(207, 20);
             this.txt_funcion_TP4.TabIndex = 1;
             // 
             // txt_b_tp4
@@ -1078,42 +1094,35 @@
             // label26
             // 
             this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(59, 67);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(22, 13);
+            this.label26.Size = new System.Drawing.Size(24, 13);
             this.label26.TabIndex = 13;
             this.label26.Text = "b =";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.Location = new System.Drawing.Point(59, 45);
             this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(22, 13);
+            this.label27.Size = new System.Drawing.Size(24, 13);
             this.label27.TabIndex = 12;
             this.label27.Text = "a =";
             // 
             // label28
             // 
             this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.Location = new System.Drawing.Point(48, 24);
             this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(33, 13);
+            this.label28.Size = new System.Drawing.Size(39, 13);
             this.label28.TabIndex = 11;
             this.label28.Text = "f (x) =";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(315, 6);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(148, 23);
-            this.label25.TabIndex = 80;
-            this.label25.Text = "Ingresar Pares";
             // 
             // AnalisisNumerico
             // 

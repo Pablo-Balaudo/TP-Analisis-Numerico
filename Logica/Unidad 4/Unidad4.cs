@@ -1,16 +1,17 @@
 ﻿using Calculus;
+using Logica.Unidad_1;
 
 namespace Logica.Unidad_4
 {
     public class Unidad4
     {
-        public static double Fx(string func, double x)
+        public static float Fx(string func, double x)
         {
             double f = 0;
             Calculo funcion = new Calculo();
             if (funcion.Sintaxis(func, 'x'))
                 f = funcion.EvaluaFx(x);
-            return f;
+            return (float)f;
         }
 
         private static Resultado_TP4 ChequearFuncion(string func)
@@ -30,7 +31,9 @@ namespace Logica.Unidad_4
             Resultado_TP4 result = ChequearFuncion(funcion);
             if (result.Ok)
             {
-                result.Resolucion = ((Fx(funcion, a) + Fx(funcion, b)) * (b - a)) / 2;
+                double Fa = Ejercicio1.Fx(funcion, a);
+                double Fb = Ejercicio1.Fx(funcion, b);
+                result.Resolucion = ((Fa + Fb) * (b - a)) / 2;
             }
             return result;
         }
